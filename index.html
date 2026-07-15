@@ -217,14 +217,17 @@
 
         .custom-select {
             width: 100%;
-            padding: 15px 0;
-            background: transparent;
+            padding: 15px 30px 15px 0;
+            background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right center;
+            background-size: 18px;
             border: none;
             border-bottom: 1px solid var(--muted-dark);
             color: var(--text-dark-bg);
             font-size: 1.1rem;
             font-family: 'Manrope', sans-serif;
             appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
             cursor: pointer;
             border-radius: 0;
             transition: border-color 0.3s;
@@ -470,9 +473,9 @@
                     <label class="serif-text">1. Базовый пакет «Под ключ»</label>
                     <span class="form-desc">Выберите пакет в зависимости от мощности вашей системы.</span>
                     <select id="package" class="custom-select" onchange="calculatePrice()">
-                        <option value="24600">Установка 07–09 (до 25 м²) — 24 600 ₽</option>
-                        <option value="30600">Установка 12–18 (до 50 м²) — 30 600 ₽</option>
-                        <option value="40200">Установка 24–36 (свыше 50 м²) — 40 200 ₽</option>
+                        <option value="24600">Установка сплит-системы мощностью 7-9 kBTU (до 25 м²) — 24 600 ₽</option>
+                        <option value="30600">Установка сплит-системы мощностью 12-18 kBTU (до 50 м²) — 30 600 ₽</option>
+                        <option value="40200">Установка сплит-системы мощностью 24-36 kBTU (свыше 50 м²) — 40 200 ₽</option>
                     </select>
                 </div>
 
@@ -483,10 +486,11 @@
                         <div>
                             <ul class="includes-list">
                                 <li>Монтаж наружного блока (в доступном месте из окна).</li>
-                                <li>Установка внутреннего блока по лазерному уровню.</li>
+                                <li>Установка внутреннего блока по уровню.</li>
                                 <li>Алмазное бурение 1 отверстия в стене (до 50 см). *</li>
                                 <li>Вакуумирование контура и пусконаладка.</li>
-                                <li>Герметизация отверстия, базовая уборка пылесосом.</li>
+                                <li>Герметизация отверстия.</li>
+                                <li>Уборка крупного мусора в тару клиента без выноса.</li>
                             </ul>
                         </div>
                         <div>
@@ -494,7 +498,7 @@
                                 <li><b>Материалы (уже включены в стоимость):</b></li>
                                 <li>Фреоновая магистраль до 3-х метров.</li>
                                 <li>Кронштейны для наружного блока (2 шт) и крепеж.</li>
-                                <li>Кабель-канал 16*16 (до 2 м) для провода питания.</li>
+                                <li>Кабель-канал 60*60 0,5 метра (для трассы).</li>
                             </ul>
                         </div>
                     </div>
