@@ -530,9 +530,20 @@
                     </div>
                 </div>
 
-                <!-- 4. Этаж -->
+                <!-- 4. Дополнительные отверстия -->
                 <div class="form-row">
-                    <label class="serif-text">4. Этаж проведения работ</label>
+                    <label class="serif-text">4. Дополнительные отверстия</label>
+                    <span class="form-desc">Если монтаж производится через балкон или лоджию. Одно отверстие уже включено в пакет (6 000 ₽ / шт).</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('extraHoles', -1)">-</button>
+                        <span id="extraHoles-val" class="counter-value">0</span>
+                        <button class="counter-btn" onclick="updateCounter('extraHoles', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- 5. Этаж -->
+                <div class="form-row">
+                    <label class="serif-text">5. Этаж проведения работ</label>
                     <span class="form-desc">Высотные работы: +2 000 ₽ за каждые 5 этажей свыше пятого.</span>
                     <div class="counter-group">
                         <button class="counter-btn" onclick="updateCounter('floor', -1)">-</button>
@@ -541,9 +552,9 @@
                     </div>
                 </div>
 
-                <!-- 5. Защита мебели -->
+                <!-- 6. Защита мебели -->
                 <div class="form-row">
-                    <label class="serif-text">5. Подготовка помещения</label>
+                    <label class="serif-text">6. Подготовка помещения</label>
                     <span class="form-desc">Укрытие мебели и элементов интерьера защитной пленкой.</span>
                     <select id="preparation" class="custom-select" onchange="calculatePrice()">
                         <option value="0">Сделаю самостоятельно (Бесплатно)</option>
@@ -720,11 +731,13 @@
         let state = {
             extraRoute: 0,
             channel: 0,
+            extraHoles: 0,
             floor: 1
         };
 
         const EXTRA_ROUTE_PRICE = 2400; 
         const CHANNEL_PRICE = 2400;     
+        const EXTRA_HOLE_PRICE = 6000;
 
         function updateCounter(type, change) {
             if (type === 'extraRoute') {
@@ -733,6 +746,9 @@
             } else if (type === 'channel') {
                 state.channel = Math.max(0, state.channel + change);
                 document.getElementById('channel-val').innerText = state.channel;
+            } else if (type === 'extraHoles') {
+                state.extraHoles = Math.max(0, state.extraHoles + change);
+                document.getElementById('extraHoles-val').innerText = state.extraHoles;
             } else if (type === 'floor') {
                 state.floor = Math.max(1, state.floor + change);
                 document.getElementById('floor-val').innerText = state.floor;
@@ -746,13 +762,14 @@
             
             const routeTotal = state.extraRoute * EXTRA_ROUTE_PRICE;
             const channelTotal = state.channel * CHANNEL_PRICE;
+            const holesTotal = state.extraHoles * EXTRA_HOLE_PRICE;
             
             let floorExtra = 0;
             if (state.floor > 5) {
                 floorExtra = Math.floor((state.floor - 1) / 5) * 2000;
             }
             
-            const total = packagePrice + routeTotal + channelTotal + floorExtra + prepPrice;
+            const total = packagePrice + routeTotal + channelTotal + holesTotal + floorExtra + prepPrice;
             
             document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
@@ -772,6 +789,7 @@
             message += `▪️ Пакет: ${packageText}\n`;
             message += `▪️ Доп. трасса: ${state.extraRoute} м\n`;
             message += `▪️ Кабель-канал: ${state.channel} м\n`;
+            message += `▪️ Доп. отверстия: ${state.extraHoles} шт\n`;
             message += `▪️ Этаж: ${state.floor}\n`;
             message += `▪️ Подготовка: ${prepText}\n\n`;
             message += `💰 Ориентировочная смета: ${totalPrice} ₽\n\n`;
