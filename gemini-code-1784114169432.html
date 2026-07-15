@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Премиальный климат | Сургут</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-light: #fdfdfd;
+            --text-light-bg: #111111;
+            --muted-light: #666666;
+            --border-light: #e5e5e5;
+            
+            --bg-dark: #0a0a0a;
+            --bg-dark-panel: #141414;
+            --text-dark-bg: #f5f5f5;
+            --muted-dark: #888888;
+            --border-dark: #333333;
+            
+            --accent: #000000;
+            --accent-dark: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, .serif-text {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- СВЕТЛАЯ ЧАСТЬ (ШАПКА И HERO) --- */
+        .light-section {
+            background-color: var(--bg-light);
+            color: var(--text-light-bg);
+        }
+
+        nav {
+            padding: 30px 0;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .status {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted-light);
+            display: flex;
+            align-items: center;
+        }
+        
+        .status a {
+            color: var(--text-light-bg);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+        
+        .status a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            padding: 100px 0 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--muted-light);
+        }
+
+        /* --- ТЕМНАЯ ЧАСТЬ (КАЛЬКУЛЯТОР) --- */
+        .dark-section {
+            background-color: var(--bg-dark);
+            color: var(--text-dark-bg);
+            padding: 100px 0;
+        }
+
+        .calc-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .calc-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .calc-wrapper {
+            background: var(--bg-dark-panel);
+            padding: 50px;
+            border: 1px solid var(--border-dark);
+        }
+
+        /* Блок "Что включено" */
+        .package-includes {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-dark);
+            padding: 30px;
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        .package-includes h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-dark);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .package-includes-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .includes-list {
+            list-style: none;
+        }
+
+        .includes-list li {
+            position: relative;
+            padding-left: 20px;
+            font-size: 0.85rem;
+            color: var(--muted-dark);
+            margin-bottom: 10px;
+        }
+
+        .includes-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-dark);
+        }
+
+        .highlight-note {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 15px;
+            background: rgba(255,255,255,0.05);
+            font-size: 0.85rem;
+            color: var(--text-dark-bg);
+            border-left: 2px solid var(--accent-dark);
+        }
+
+        /* Формы */
+        .form-row {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--border-dark);
+        }
+
+        .form-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .form-row label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--accent-dark);
+            letter-spacing: 0.5px;
+        }
+
+        .form-desc {
+            display: block;
+            font-size: 0.85rem;
+            color: var(--muted-dark);
+            margin-bottom: 20px;
+        }
+
+        .custom-select {
+            width: 100%;
+            padding: 15px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid var(--muted-dark);
+            color: var(--text-dark-bg);
+            font-size: 1.1rem;
+            font-family: 'Manrope', sans-serif;
+            appearance: none;
+            cursor: pointer;
+            border-radius: 0;
+            transition: border-color 0.3s;
+        }
+
+        .custom-select:focus {
+            outline: none;
+            border-bottom: 1px solid var(--accent-dark);
+        }
+
+        .custom-select option {
+            background: var(--bg-dark-panel);
+            color: var(--text-dark-bg);
+        }
+
+        .counter-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .counter-btn {
+            width: 45px;
+            height: 45px;
+            border: 1px solid var(--border-dark);
+            background: transparent;
+            color: var(--text-dark-bg);
+            font-size: 1.5rem;
+            font-family: 'Manrope', sans-serif;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.3s;
+        }
+
+        .counter-btn:hover {
+            border-color: var(--accent-dark);
+            background: rgba(255,255,255,0.05);
+        }
+
+        .counter-value {
+            font-size: 1.2rem;
+            font-weight: 600;
+            min-width: 40px;
+            text-align: center;
+        }
+
+        /* Итог */
+        .result-box {
+            margin-top: 50px;
+            background: #ffffff;
+            color: #000000;
+            padding: 50px 40px;
+            text-align: center;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #555;
+        }
+
+        .price-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin: 15px 0 30px 0;
+            line-height: 1;
+        }
+
+        .btn-submit {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background-color: #000;
+            color: #fff;
+            padding: 20px 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn-submit svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+
+        .btn-submit:hover {
+            background-color: #333;
+        }
+
+        /* --- БЛОК ОТЗЫВОВ (СВЕТЛЫЙ) --- */
+        .reviews-section {
+            background-color: var(--bg-light);
+            color: var(--text-light-bg);
+            padding: 100px 0;
+        }
+
+        .reviews-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .reviews-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .reviews-header p {
+            color: var(--muted-light);
+            font-size: 1rem;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: #fff;
+            padding: 40px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .review-stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            margin-bottom: 20px;
+        }
+
+        .review-text {
+            font-size: 0.95rem;
+            color: var(--muted-light);
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            flex-grow: 1;
+        }
+
+        .review-author-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-top: 1px solid var(--border-light);
+            padding-top: 20px;
+        }
+
+        .review-author {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .review-date {
+            font-size: 0.8rem;
+            color: var(--muted-light);
+        }
+
+        .review-service {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--muted-light);
+            margin-top: 5px;
+        }
+
+        /* --- ФУТЕР --- */
+        footer {
+            background-color: var(--bg-light);
+            border-top: 1px solid var(--border-light);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--muted-light);
+            font-size: 0.85rem;
+        }
+
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--text-light-bg);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; text-align: center; }
+            .calc-wrapper, .review-card { padding: 25px; }
+            .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
+            .price-value { font-size: 3rem; }
+            .btn-submit { width: 100%; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- СВЕТЛЫЙ БЛОК (ШАПКА) -->
+    <div class="light-section">
+        <nav class="container">
+            <div class="logo serif-text">Сургут</div>
+            <div class="status">
+                Бесплатный замер и согласование <span style="margin: 0 10px;">•</span> 
+                <a href="tel:+79822226429">+7 (982) 222-64-29</a>
+            </div>
+        </nav>
+
+        <header class="hero container">
+            <h1>Установка<br>Сплит Систем</h1>
+            <p>Архитектурный подход к установке сплит-систем в Сургуте. Ровные трассы, алмазное бурение и бережное отношение к вашему интерьеру.</p>
+        </header>
+    </div>
+
+    <!-- ТЕМНЫЙ БЛОК (КАЛЬКУЛЯТОР) -->
+    <section class="dark-section">
+        <div class="container">
+            <div class="calc-header">
+                <h2 class="serif-text">Оценка проекта</h2>
+            </div>
+
+            <div class="calc-wrapper">
+                
+                <!-- 1. Выбор пакета -->
+                <div class="form-row">
+                    <label class="serif-text">1. Базовый пакет «Под ключ»</label>
+                    <span class="form-desc">Выберите пакет в зависимости от мощности вашей системы.</span>
+                    <select id="package" class="custom-select" onchange="calculatePrice()">
+                        <option value="24600">Установка 07–09 (до 25 м²) — 24 600 ₽</option>
+                        <option value="30600">Установка 12–18 (до 50 м²) — 30 600 ₽</option>
+                        <option value="40200">Установка 24–36 (свыше 50 м²) — 40 200 ₽</option>
+                    </select>
+                </div>
+
+                <!-- Блок "Что входит в пакет" -->
+                <div class="package-includes">
+                    <h3 class="serif-text">Состав базового пакета:</h3>
+                    <div class="package-includes-grid">
+                        <div>
+                            <ul class="includes-list">
+                                <li>Монтаж наружного блока (в доступном месте из окна).</li>
+                                <li>Установка внутреннего блока по лазерному уровню.</li>
+                                <li>Алмазное бурение 1 отверстия в стене (до 50 см). *</li>
+                                <li>Вакуумирование контура и пусконаладка.</li>
+                                <li>Герметизация отверстия, базовая уборка пылесосом.</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul class="includes-list">
+                                <li><b>Материалы (уже включены в стоимость):</b></li>
+                                <li>Фреоновая магистраль до 3-х метров.</li>
+                                <li>Кронштейны для наружного блока (2 шт) и крепеж.</li>
+                                <li>Кабель-канал 16*16 (до 2 м) для провода питания.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlight-note">
+                        * Трасса длиной 3 метра — это технический стандарт для долговечной работы компрессора. <br>
+                        * При толщине стены свыше 50 см бурение оплачивается дополнительно (+420 ₽ / см).
+                    </div>
+                </div>
+
+                <!-- 2. Дополнительная трасса -->
+                <div class="form-row">
+                    <label class="serif-text">2. Дополнительные метры трассы</label>
+                    <span class="form-desc">Укажите, сколько <b>дополнительных</b> метров потребуется свыше базовых 3-х метров (2 400 ₽ / метр).</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('extraRoute', -1)">-</button>
+                        <span id="extraRoute-val" class="counter-value">0</span>
+                        <button class="counter-btn" onclick="updateCounter('extraRoute', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- 3. Кабель-канал -->
+                <div class="form-row">
+                    <label class="serif-text">3. Декоративный кабель-канал для трассы</label>
+                    <span class="form-desc">В метрах. Оставьте 0, если монтаж скрытый (в штробе). (2 400 ₽ / метр).</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('channel', -1)">-</button>
+                        <span id="channel-val" class="counter-value">0</span>
+                        <button class="counter-btn" onclick="updateCounter('channel', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- 4. Этаж -->
+                <div class="form-row">
+                    <label class="serif-text">4. Этаж проведения работ</label>
+                    <span class="form-desc">Высотные работы: +2 000 ₽ за каждые 5 этажей свыше пятого.</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('floor', -1)">-</button>
+                        <span id="floor-val" class="counter-value">1</span>
+                        <button class="counter-btn" onclick="updateCounter('floor', 1)">+</button>
+                    </div>
+                </div>
+
+                <!-- 5. Защита мебели -->
+                <div class="form-row">
+                    <label class="serif-text">5. Подготовка помещения</label>
+                    <span class="form-desc">Укрытие мебели и элементов интерьера защитной пленкой.</span>
+                    <select id="preparation" class="custom-select" onchange="calculatePrice()">
+                        <option value="0">Сделаю самостоятельно (Бесплатно)</option>
+                        <option value="1200">Требуется укрытие пленкой силами мастеров (+1 200 ₽)</option>
+                    </select>
+                </div>
+
+                <!-- Итог -->
+                <div class="result-box">
+                    <div class="price-label">Итоговая смета:</div>
+                    <div class="price-value"><span id="total-price">24 600</span> ₽</div>
+                    <button class="btn-submit" onclick="submitOrder()">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                            <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                        </svg>
+                        Отправить в Telegram
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- СВЕТЛЫЙ БЛОК (ОТЗЫВЫ) -->
+    <section class="reviews-section">
+        <div class="container">
+            <div class="reviews-header">
+                <h2 class="serif-text">Репутация в деталях</h2>
+                <p>Что говорят клиенты о нашем подходе к работе</p>
+            </div>
+            
+            <div class="reviews-grid">
+                
+                <!-- Отзыв 1 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Отличный мастер, с момента звонка до момента подключения кондиционера прошло 3 часа, все четко, о цене договорились 🤝 Требовалось подключить трассу между наружним и внутренним блоком на даче. Демократичная цена, удивился что не такая как у большинства, где порой выходит как стоимость самого кондиционера 😳 Оказанной услугой полностью довольны 👍 Спасибо большое, буду рекомендовать.»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Даниил</span>
+                            <span class="review-date">14.07.2026</span>
+                        </div>
+                        <div class="review-service">Подключение трассы на даче</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Приехал мастер все замерил, договорились об установке на следующий день. С утра приехали стали устанавливать, работу выполнили качественно, осталась довольна, в следующем году планирую новую покупку и конечно же обращусь еще раз. Особенно понравилось как они установили внешний блок, аккуратно ни чего не торчит😊»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Мадина</span>
+                            <span class="review-date">14.07.2026</span>
+                        </div>
+                        <div class="review-service">Установка сплит-системы</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 3 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Все сделано качественно.»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Пользователь</span>
+                            <span class="review-date">10 июля</span>
+                        </div>
+                        <div class="review-service">Монтаж с гарантией</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 4 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Отличный мастер и хороший человек. Приехал в назначенное время, сделал работу профессионально, всем довольны»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Evgeniy</span>
+                            <span class="review-date">10 июля</span>
+                        </div>
+                        <div class="review-service">Монтаж с гарантией</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 5 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Всё, отлично! Парни молодцы, выполнили работу на 5+»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Александр</span>
+                            <span class="review-date">9 июля</span>
+                        </div>
+                        <div class="review-service">Установка сплит-системы</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 6 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Отличный мастер рекомендую. Приехал сделал все четко и быстро, профи своего дела!»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Николай</span>
+                            <span class="review-date">7 июля</span>
+                        </div>
+                        <div class="review-service">Установка сплит-системы</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 7 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Рекомендую данного мастера, приехал во время, сделал работу на отлично!»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Гриша</span>
+                            <span class="review-date">6 июля</span>
+                        </div>
+                        <div class="review-service">Установка сплит-системы</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 8 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Мастер отличный. проконсультровал, помог с выбором сплит системы, договорились о цене и времени. Работа была выполнена в полном объеме.»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Владислав</span>
+                            <span class="review-date">5 июля</span>
+                        </div>
+                        <div class="review-service">Помощь в выборе и установка</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 9 -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★★</div>
+                    <div class="review-text">«Сплит-система установлена отлично, мастер приехал во время, установил быстро и аккуратно, объяснил как пользоваться, дал гарантию год на свою работу🙏»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Ангелина</span>
+                            <span class="review-date">5 июля</span>
+                        </div>
+                        <div class="review-service">Установка с гарантией</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Сургут</div>
+            <p>Профессиональный монтаж и обслуживание кондиционеров в Сургуте.</p>
+            <p>Работаем официально. Гарантия по договору.</p>
+            <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.7;">© 2026 Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        let state = {
+            extraRoute: 0,
+            channel: 0,
+            floor: 1
+        };
+
+        const EXTRA_ROUTE_PRICE = 2400; 
+        const CHANNEL_PRICE = 2400;     
+
+        function updateCounter(type, change) {
+            if (type === 'extraRoute') {
+                state.extraRoute = Math.max(0, state.extraRoute + change);
+                document.getElementById('extraRoute-val').innerText = state.extraRoute;
+            } else if (type === 'channel') {
+                state.channel = Math.max(0, state.channel + change);
+                document.getElementById('channel-val').innerText = state.channel;
+            } else if (type === 'floor') {
+                state.floor = Math.max(1, state.floor + change);
+                document.getElementById('floor-val').innerText = state.floor;
+            }
+            calculatePrice();
+        }
+
+        function calculatePrice() {
+            const packagePrice = parseInt(document.getElementById('package').value);
+            const prepPrice = parseInt(document.getElementById('preparation').value);
+            
+            const routeTotal = state.extraRoute * EXTRA_ROUTE_PRICE;
+            const channelTotal = state.channel * CHANNEL_PRICE;
+            
+            let floorExtra = 0;
+            if (state.floor > 5) {
+                floorExtra = Math.floor((state.floor - 1) / 5) * 2000;
+            }
+            
+            const total = packagePrice + routeTotal + channelTotal + floorExtra + prepPrice;
+            
+            document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+        // Функция отправки заявки в Telegram
+        function submitOrder() {
+            const packageSelect = document.getElementById('package');
+            const packageText = packageSelect.options[packageSelect.selectedIndex].text.split(' — ')[0];
+            
+            const prepSelect = document.getElementById('preparation');
+            const prepText = prepSelect.options[prepSelect.selectedIndex].text.split(' (+')[0];
+            
+            const totalPrice = document.getElementById('total-price').innerText;
+
+            let message = "Здравствуйте! Хочу оставить заявку на установку кондиционера.\n\n";
+            message += "📋 Мой расчет:\n";
+            message += `▪️ Пакет: ${packageText}\n`;
+            message += `▪️ Доп. трасса: ${state.extraRoute} м\n`;
+            message += `▪️ Кабель-канал: ${state.channel} м\n`;
+            message += `▪️ Этаж: ${state.floor}\n`;
+            message += `▪️ Подготовка: ${prepText}\n\n`;
+            message += `💰 Ориентировочная смета: ${totalPrice} ₽\n\n`;
+            message += "Подскажите, когда возможен выезд инженера на бесплатный замер?";
+
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Номер Telegram в международном формате
+            const telegramNumber = "+79822226429";
+            
+            window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        window.onload = calculatePrice;
+    </script>
+
+</body>
+</html>
