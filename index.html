@@ -203,7 +203,7 @@
         .form-row label {
             display: block;
             font-size: 1.1rem;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             color: var(--accent-dark);
             letter-spacing: 0.5px;
         }
@@ -215,27 +215,32 @@
             margin-bottom: 20px;
         }
 
+        /* Обновленный массивный селект для мобильных */
         .custom-select {
             width: 100%;
-            padding: 15px 30px 15px 0;
-            background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right center;
+            padding: 18px 45px 18px 20px; 
+            background-color: #1a1a1a; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
             background-size: 18px;
-            border: none;
-            border-bottom: 1px solid var(--muted-dark);
-            color: var(--text-dark-bg);
+            border: 1px solid #444; 
+            color: #ffffff;
             font-size: 1.1rem;
+            font-weight: 600; 
             font-family: 'Manrope', sans-serif;
             appearance: none;
             -webkit-appearance: none;
             -moz-appearance: none;
             cursor: pointer;
             border-radius: 0;
-            transition: border-color 0.3s;
+            transition: all 0.3s;
         }
 
         .custom-select:focus {
             outline: none;
-            border-bottom: 1px solid var(--accent-dark);
+            border-color: var(--accent-dark);
+            background-color: #222;
         }
 
         .custom-select option {
@@ -250,10 +255,10 @@
         }
 
         .counter-btn {
-            width: 45px;
-            height: 45px;
+            width: 50px;
+            height: 50px;
             border: 1px solid var(--border-dark);
-            background: transparent;
+            background: #1a1a1a;
             color: var(--text-dark-bg);
             font-size: 1.5rem;
             font-family: 'Manrope', sans-serif;
@@ -266,7 +271,7 @@
 
         .counter-btn:hover {
             border-color: var(--accent-dark);
-            background: rgba(255,255,255,0.05);
+            background: #2a2a2a;
         }
 
         .counter-value {
@@ -438,6 +443,9 @@
             .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
             .price-value { font-size: 3rem; }
             .btn-submit { width: 100%; padding: 20px; }
+            
+            /* На мобильных текст селекта может быть чуть меньше, чтобы точно влезть */
+            .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
         }
     </style>
 </head>
@@ -473,9 +481,9 @@
                     <label class="serif-text">1. Базовый пакет «Под ключ»</label>
                     <span class="form-desc">Выберите пакет в зависимости от мощности вашей системы.</span>
                     <select id="package" class="custom-select" onchange="calculatePrice()">
-                        <option value="24600">Установка сплит-системы мощностью 7-9 kBTU (до 25 м²) — 24 600 ₽</option>
-                        <option value="30600">Установка сплит-системы мощностью 12-18 kBTU (до 50 м²) — 30 600 ₽</option>
-                        <option value="40200">Установка сплит-системы мощностью 24-36 kBTU (свыше 50 м²) — 40 200 ₽</option>
+                        <option value="24600">Сплит-система 7-9 kBTU (до 25 м²) — 24 600 ₽</option>
+                        <option value="30600">Сплит-система 12-18 kBTU (до 50 м²) — 30 600 ₽</option>
+                        <option value="40200">Сплит-система 24-36 kBTU (свыше 50 м²) — 40 200 ₽</option>
                     </select>
                 </div>
 
@@ -558,7 +566,7 @@
                     <span class="form-desc">Укрытие мебели и элементов интерьера защитной пленкой.</span>
                     <select id="preparation" class="custom-select" onchange="calculatePrice()">
                         <option value="0">Сделаю самостоятельно (Бесплатно)</option>
-                        <option value="1200">Требуется укрытие пленкой силами мастеров (+1 200 ₽)</option>
+                        <option value="1200">Укрытие мебели пленкой (+1 200 ₽)</option>
                     </select>
                 </div>
 
