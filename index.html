@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Премиальный климат | Сургут</title>
+    <title>Установка сплит-систем в Сургуте | Гарантия 1 год, выезд бесплатно</title>
+    <meta name="description" content="Профессиональная установка кондиционеров в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
+    <meta property="og:title" content="Установка сплит-систем в Сургуте">
+    <meta property="og:description" content="Ровные трассы, алмазное бурение, гарантия 1 год. Рассчитайте стоимость онлайн за 1 минуту.">
+    <meta property="og:type" content="website">
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -71,7 +75,11 @@
         }
 
         nav {
-            padding: 30px 0;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background-color: var(--bg-light);
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-light);
             display: flex;
             justify-content: space-between;
@@ -80,9 +88,11 @@
             gap: 15px;
         }
 
-        .logo { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: baseline; gap: 15px; }
-        .nav-links a { color: var(--muted-light); text-decoration: none; font-size: 0.9rem; font-family: 'Manrope', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        .logo {
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
         .status {
             font-size: 0.85rem;
@@ -119,8 +129,58 @@
         .hero p {
             font-size: 1.1rem;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 0 auto 35px auto;
             color: var(--muted-light);
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            text-decoration: none;
+            padding: 18px 45px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: opacity 0.3s;
+        }
+
+        .hero-cta:hover {
+            opacity: 0.8;
+        }
+
+        .trust-bar {
+            border-top: 1px solid var(--border-light);
+            padding: 30px 0;
+        }
+
+        .trust-bar .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .trust-item {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--muted-light);
+        }
+
+        .trust-item b {
+            display: block;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--text-light-bg);
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
         }
 
         /* --- ТЕМНАЯ ЧАСТЬ (КАЛЬКУЛЯТОР) --- */
@@ -136,7 +196,7 @@
         }
 
         .calc-header h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-size: 2.5rem;
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
@@ -450,8 +510,7 @@
         }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; text-align: center; gap: 20px; }
-            .logo { flex-direction: column; align-items: center; gap: 10px; }
+            nav { flex-direction: column; text-align: center; }
             .calc-wrapper, .review-card { padding: 25px; }
             .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
             .price-value { font-size: 3rem; }
@@ -459,6 +518,109 @@
             
             /* На мобильных текст селекта может быть чуть меньше, чтобы точно влезть */
             .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
+
+            .hero-cta { width: 100%; padding: 18px; }
+            body { padding-bottom: 70px; } /* место под плавающую панель */
+        }
+
+        /* --- ПЛАВАЮЩАЯ ПАНЕЛЬ (МОБИЛЬНЫЕ) --- */
+        .mobile-sticky-cta {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-sticky-cta {
+                display: flex;
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 300;
+                background: #000;
+                border-top: 1px solid #333;
+            }
+            .mobile-sticky-cta a, .mobile-sticky-cta button {
+                flex: 1;
+                border: none;
+                background: transparent;
+                color: #fff;
+                padding: 18px 10px;
+                font-family: 'Manrope', sans-serif;
+                font-size: 0.8rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                text-decoration: none;
+                text-align: center;
+                cursor: pointer;
+            }
+            .mobile-sticky-cta a:first-child {
+                border-right: 1px solid #333;
+            }
+        }
+
+        /* --- FAQ --- */
+        .faq-section {
+            background-color: var(--bg-light);
+            color: var(--text-light-bg);
+            padding: 0 0 100px 0;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-light);
+            padding: 25px 0;
+        }
+
+        .faq-item summary {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .faq-item summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            font-family: 'Manrope', sans-serif;
+            font-weight: 300;
+            margin-left: 20px;
+        }
+
+        .faq-item[open] summary::after {
+            content: "–";
+        }
+
+        .faq-item p {
+            margin-top: 15px;
+            color: var(--muted-light);
+            font-size: 0.95rem;
+            max-width: 700px;
+        }
+
+        /* --- ФИНАЛЬНЫЙ CTA --- */
+        .final-cta {
+            background-color: var(--bg-dark);
+            color: var(--text-dark-bg);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+
+        .final-cta p {
+            color: var(--muted-dark);
+            margin-bottom: 35px;
         }
     </style>
 </head>
@@ -467,30 +629,34 @@
     <!-- СВЕТЛЫЙ БЛОК (ШАПКА) -->
     <div class="light-section">
         <nav class="container">
-            <div class="logo serif-text">
-                Сургут
-                <div class="nav-links">
-                    <a href="index.html" class="active" style="color: var(--text-light-bg);">Установка</a>
-                    <a href="cleaning.html">Чистка</a>
-                </div>
-            </div>
+            <div class="logo serif-text">Сургут</div>
             <div class="status">
                 Бесплатный замер и согласование <span style="margin: 0 10px;">•</span> 
-                <a href="tel:+79822226429">+7 (982) 222-64-29</a>
+                <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">+7 (982) 222-64-29</a>
             </div>
         </nav>
 
         <header class="hero container">
             <h1>Установка<br>Сплит Систем</h1>
             <p>Архитектурный подход к установке сплит-систем в Сургуте. Ровные трассы, алмазное бурение и бережное отношение к вашему интерьеру.</p>
+            <a href="#calculator" class="hero-cta">Рассчитать стоимость за 1 минуту</a>
         </header>
+
+        <div class="trust-bar">
+            <div class="container">
+                <div class="trust-item"><b>1 год</b>Гарантия на работы</div>
+                <div class="trust-item"><b>0 ₽</b>Выезд и замер</div>
+                <div class="trust-item"><b>1 день</b>Монтаж «под ключ»</div>
+                <div class="trust-item"><b>Без пыли</b>Чистый монтаж</div>
+            </div>
+        </div>
     </div>
 
     <!-- ТЕМНЫЙ БЛОК (КАЛЬКУЛЯТОР) -->
-    <section class="dark-section">
+    <section class="dark-section" id="calculator">
         <div class="container">
             <div class="calc-header">
-                <h2 class="serif-text">Рассчитать стоимость установки сплит-системы</h2>
+                <h2 class="serif-text">Оценка проекта</h2>
             </div>
 
             <div class="calc-wrapper">
@@ -602,7 +768,7 @@
                             Отправить заявку в Telegram
                         </button>
                         
-                        <a href="tel:+79822226429" style="text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
+                        <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}" style="text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
                             Согласовать по телефону
                             <span style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700;">+7 (982) 222-64-29</span>
                         </a>
@@ -744,15 +910,59 @@
         </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container" style="max-width: 800px;">
+            <div class="reviews-header">
+                <h2 class="serif-text">Частые вопросы</h2>
+            </div>
+
+            <details class="faq-item" open>
+                <summary>Сколько ждать мастера после заявки?</summary>
+                <p>Обычно инженер приезжает на бесплатный замер в день обращения или на следующий день — точное время согласовываем по телефону или в Telegram.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Что если итоговая смета отличается от расчёта на сайте?</summary>
+                <p>Калькулятор даёт точную оценку по стандартным условиям. Финальная сумма фиксируется только после бесплатного замера инженером — сюрпризов на месте не будет.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Даёте ли вы гарантию на монтаж?</summary>
+                <p>Да, гарантия на выполненные работы — 1 год. Все условия прописываются заранее.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Можно ли вызвать мастера на выходных?</summary>
+                <p>Да, выезжаем ежедневно, включая выходные и праздничные дни.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="serif-text">Остались вопросы по стоимости?</h2>
+            <p>Согласуем детали за 5 минут и запишем на бесплатный замер</p>
+            <a href="#calculator" class="hero-cta">Вернуться к расчёту</a>
+        </div>
+    </section>
+
     <!-- ФУТЕР -->
     <footer>
         <div class="container">
             <div class="footer-logo">Сургут</div>
             <p>Профессиональный монтаж и обслуживание кондиционеров в Сургуте.</p>
-            <p>Работаем официально. Гарантия по договору.</p>
+            <p>Гарантия на выполненные работы — 1 год.</p>
             <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.7;">© 2026 Все права защищены.</p>
         </div>
     </footer>
+
+    <!-- ПЛАВАЮЩАЯ ПАНЕЛЬ ДЛЯ МОБИЛЬНЫХ -->
+    <div class="mobile-sticky-cta">
+        <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">Позвонить</a>
+        <button onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'}); ">К расчёту</button>
+    </div>
 
     <script>
         let state = {
@@ -826,6 +1036,11 @@
             
             // Номер Telegram в международном формате
             const telegramNumber = "+79822226429";
+
+            // Цель для отслеживания конверсии в Яндекс.Метрике
+            if (typeof ym === 'function') {
+                ym(110783414, 'reachGoal', 'order_submit');
+            }
             
             window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
         }
