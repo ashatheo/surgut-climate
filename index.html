@@ -80,11 +80,9 @@
             gap: 15px;
         }
 
-        .logo {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .logo { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: baseline; gap: 15px; }
+        .nav-links a { color: var(--muted-light); text-decoration: none; font-size: 0.9rem; font-family: 'Manrope', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
 
         .status {
             font-size: 0.85rem;
@@ -138,7 +136,7 @@
         }
 
         .calc-header h2 {
-            font-size: 2.5rem;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
             margin-bottom: 10px;
             letter-spacing: 1px;
         }
@@ -452,7 +450,8 @@
         }
 
         @media (max-width: 768px) {
-            nav { flex-direction: column; text-align: center; }
+            nav { flex-direction: column; text-align: center; gap: 20px; }
+            .logo { flex-direction: column; align-items: center; gap: 10px; }
             .calc-wrapper, .review-card { padding: 25px; }
             .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
             .price-value { font-size: 3rem; }
@@ -468,7 +467,13 @@
     <!-- СВЕТЛЫЙ БЛОК (ШАПКА) -->
     <div class="light-section">
         <nav class="container">
-            <div class="logo serif-text">Сургут</div>
+            <div class="logo serif-text">
+                Сургут
+                <div class="nav-links">
+                    <a href="index.html" class="active" style="color: var(--text-light-bg);">Установка</a>
+                    <a href="cleaning.html">Чистка</a>
+                </div>
+            </div>
             <div class="status">
                 Бесплатный замер и согласование <span style="margin: 0 10px;">•</span> 
                 <a href="tel:+79822226429">+7 (982) 222-64-29</a>
@@ -485,7 +490,7 @@
     <section class="dark-section">
         <div class="container">
             <div class="calc-header">
-                <h2 class="serif-text">Оценка проекта</h2>
+                <h2 class="serif-text">Рассчитать стоимость установки сплит-системы</h2>
             </div>
 
             <div class="calc-wrapper">
