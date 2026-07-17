@@ -1,1 +1,389 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чистка кондиционеров | Сургут</title>
 
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110783414', 'ym');
+
+        ym(110783414, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/110783414" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-light: #fdfdfd;
+            --text-light-bg: #111111;
+            --muted-light: #666666;
+            --border-light: #e5e5e5;
+            
+            --bg-dark: #0a0a0a;
+            --bg-dark-panel: #141414;
+            --text-dark-bg: #f5f5f5;
+            --muted-dark: #888888;
+            --border-dark: #333333;
+            
+            --accent: #000000;
+            --accent-dark: #ffffff;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body { font-family: 'Manrope', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+
+        h1, h2, h3, .serif-text { font-family: 'Playfair Display', serif; font-weight: 700; line-height: 1.2; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- СВЕТЛАЯ ЧАСТЬ (ШАПКА И HERO) --- */
+        .light-section { background-color: var(--bg-light); color: var(--text-light-bg); }
+
+        nav {
+            position: sticky; top: 0; z-index: 200; background-color: var(--bg-light); padding: 20px 0;
+            border-bottom: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px;
+        }
+
+        .logo { font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: baseline; gap: 15px; }
+        .nav-links a { color: var(--muted-light); text-decoration: none; font-size: 0.9rem; font-family: 'Manrope', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+
+        .status { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted-light); display: flex; align-items: center; }
+        .status a { color: var(--text-light-bg); text-decoration: none; font-weight: 600; transition: opacity 0.3s; }
+        .status a:hover { opacity: 0.7; }
+
+        .hero { padding: 100px 0 80px 0; text-align: center; }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 35px auto; color: var(--muted-light); }
+
+        .hero-cta {
+            display: inline-block; background-color: #000; color: #fff; text-decoration: none; padding: 18px 45px;
+            font-size: 0.95rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: opacity 0.3s;
+        }
+        .hero-cta:hover { opacity: 0.8; }
+
+        /* --- ПАНЕЛЬ ДОВЕРИЯ --- */
+        .trust-bar { border-top: 1px solid var(--border-light); padding: 30px 0; }
+        .trust-bar .container { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; }
+        .trust-item { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted-light); }
+        .trust-item b { display: block; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-light-bg); text-transform: none; letter-spacing: 0; margin-bottom: 5px; }
+
+        /* --- ТЕМНАЯ ЧАСТЬ (КАЛЬКУЛЯТОР) --- */
+        .dark-section { background-color: var(--bg-dark); color: var(--text-dark-bg); padding: 100px 0; }
+        .calc-header { text-align: center; margin-bottom: 60px; }
+        .calc-header h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 10px; letter-spacing: 1px; }
+        .calc-wrapper { background: var(--bg-dark-panel); padding: 50px; border: 1px solid var(--border-dark); }
+
+        /* Блок "Что включено" */
+        .package-includes { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-dark); padding: 30px; margin-top: 20px; margin-bottom: 40px; }
+        .package-includes h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 1px; }
+        .includes-list { list-style: none; }
+        .includes-list li { position: relative; padding-left: 20px; font-size: 0.9rem; color: var(--muted-dark); margin-bottom: 10px; }
+        .includes-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent-dark); }
+        .bonus-box { display: inline-block; margin-top: 20px; padding: 15px 25px; border: 1px solid var(--accent-dark); background: rgba(255,255,255,0.05); font-size: 0.9rem; color: var(--accent-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* Формы */
+        .form-row { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid var(--border-dark); }
+        .form-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+        .form-row label { display: block; font-size: 1.1rem; margin-bottom: 10px; color: var(--accent-dark); letter-spacing: 0.5px; }
+        .form-desc { display: block; font-size: 0.85rem; color: var(--muted-dark); margin-bottom: 20px; }
+
+        .custom-select {
+            width: 100%; padding: 18px 45px 18px 20px; background-color: #1a1a1a; 
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat; background-position: right 20px center; background-size: 18px;
+            border: 1px solid #444; color: #ffffff; font-size: 1.1rem; font-weight: 600; 
+            font-family: 'Manrope', sans-serif; appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer; border-radius: 0; transition: all 0.3s;
+        }
+        .custom-select:focus { outline: none; border-color: var(--accent-dark); background-color: #222; }
+        .custom-select option { background: var(--bg-dark-panel); color: var(--text-dark-bg); }
+
+        /* Итог */
+        .result-box { margin-top: 50px; background: #ffffff; color: #000000; padding: 50px 40px; text-align: center; }
+        .price-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
+        .price-value { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 15px 0 30px 0; line-height: 1; }
+        
+        .btn-submit {
+            display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+            background-color: #000; color: #fff; padding: 20px 50px; font-size: 1rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease; width: 100%; max-width: 400px;
+        }
+        .btn-submit svg { width: 20px; height: 20px; fill: currentColor; }
+        .btn-submit:hover { background-color: #333; }
+
+        .btn-call {
+            text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-call span { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        /* --- FAQ --- */
+        .faq-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 0 0 100px 0; }
+        .faq-item { border-bottom: 1px solid var(--border-light); padding: 25px 0; }
+        .faq-item summary { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary::after { content: "+"; font-size: 1.5rem; font-family: 'Manrope', sans-serif; font-weight: 300; margin-left: 20px; }
+        .faq-item[open] summary::after { content: "–"; }
+        .faq-item p { margin-top: 15px; color: var(--muted-light); font-size: 0.95rem; max-width: 700px; }
+
+        /* --- ФИНАЛЬНЫЙ CTA --- */
+        .final-cta { background-color: var(--bg-dark); color: var(--text-dark-bg); padding: 80px 0; text-align: center; }
+        .final-cta h2 { font-size: 2rem; margin-bottom: 15px; }
+        .final-cta p { color: var(--muted-dark); margin-bottom: 35px; }
+
+        /* --- ФУТЕР --- */
+        footer { background-color: var(--bg-light); border-top: 1px solid var(--border-light); padding: 40px 0; text-align: center; color: var(--muted-light); font-size: 0.85rem; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-light-bg); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- АДАПТИВНОСТЬ И МОБИЛЬНАЯ ПАНЕЛЬ --- */
+        .mobile-sticky-cta { display: none; }
+
+        @media (max-width: 768px) {
+            nav { flex-direction: column; text-align: center; gap: 20px; }
+            .logo { flex-direction: column; align-items: center; gap: 10px; }
+            .hero-cta { width: 100%; padding: 18px; }
+            .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
+            .calc-wrapper { padding: 25px; }
+            .price-value { font-size: 3rem; }
+            .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
+            
+            /* Отступ снизу для мобилок с учетом "челки" снизу на iPhone */
+            body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
+
+            .mobile-sticky-cta {
+                display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
+                background: #000; border-top: 1px solid #333;
+                padding-bottom: env(safe-area-inset-bottom); /* Айфоны: кнопка не уедет под индикатор */
+            }
+            .mobile-sticky-cta a, .mobile-sticky-cta button {
+                flex: 1; border: none; background: transparent; color: #fff; padding: 18px 10px;
+                font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+                letter-spacing: 0.5px; text-decoration: none; text-align: center; cursor: pointer;
+            }
+            .mobile-sticky-cta a:first-child { border-right: 1px solid #333; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- СВЕТЛЫЙ БЛОК (ШАПКА) -->
+    <div class="light-section">
+        <nav class="container">
+            <div class="logo serif-text">
+                Сургут
+                <div class="nav-links">
+                    <a href="index.html" style="margin-right: 15px;">Установка</a>
+                    <a href="cleaning.html" class="active" style="color: var(--text-light-bg);">Чистка</a>
+                </div>
+            </div>
+            <div class="status">
+                Работаем по всему Сургуту <span style="margin: 0 10px;">•</span> 
+                <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">+7 (982) 222-64-29</a>
+            </div>
+        </nav>
+
+        <header class="hero container">
+            <h1>Дышите<br>Чистым воздухом</h1>
+            <p>Неприятный запах, капает вода или кондиционер плохо холодит? Проблема не во фреоне, а в накопившейся грязи. Вернем вашей сплит-системе заводскую свежесть и мощность.</p>
+            <a href="#calculator" class="hero-cta">Узнать стоимость чистки</a>
+        </header>
+
+        <div class="trust-bar">
+            <div class="container">
+                <div class="trust-item"><b>3 месяца</b>Гарантия на работы</div>
+                <div class="trust-item"><b>Без луж</b>Сервис-пакет</div>
+                <div class="trust-item"><b>1.5 часа</b>Время чистки</div>
+                <div class="trust-item"><b>Без запаха</b>Мойка с химией</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТЕМНЫЙ БЛОК (КАЛЬКУЛЯТОР) -->
+    <section class="dark-section" id="calculator">
+        <div class="container">
+            <div class="calc-header">
+                <h2 class="serif-text">Стоимость обслуживания</h2>
+                <p style="color: var(--muted-dark); margin-top: 10px;">Прозрачный прайс-лист без скрытых накруток</p>
+            </div>
+
+            <div class="calc-wrapper">
+                
+                <!-- 1. Внутренний блок -->
+                <div class="form-row">
+                    <label class="serif-text">1. Глубокая чистка внутреннего блока</label>
+                    <span class="form-desc">Базовая услуга для восстановления ледяного потока и чистого воздуха.</span>
+                    <select id="indoor" class="custom-select" disabled>
+                        <option value="4000">Чистка внутреннего блока «Под ключ» — 4 000 ₽</option>
+                    </select>
+                </div>
+
+                <!-- Блок "Что входит" -->
+                <div class="package-includes">
+                    <h3 class="serif-text">В стоимость 4 000 ₽ уже включено:</h3>
+                    <ul class="includes-list">
+                        <li>Разборка и мойка пластиковых деталей корпуса.</li>
+                        <li>Очистка радиатора профессиональной химией.</li>
+                        <li>Мойка вентилятора (турбины) под высоким давлением.</li>
+                        <li>Промывка дренажной системы.</li>
+                        <li>Профессиональная антибактериальная обработка от грибка и запахов.</li>
+                    </ul>
+                    <div class="bonus-box">
+                        🎁 Бонус: Бесплатная замена батареек в вашем пульте ДУ!
+                    </div>
+                </div>
+
+                <!-- 2. Наружный блок -->
+                <div class="form-row">
+                    <label class="serif-text">2. Мойка наружного блока (с улицы)</label>
+                    <span class="form-desc">Производится только при безопасном доступе из окна или с балкона.</span>
+                    <select id="outdoor" class="custom-select" onchange="calculateCleaningPrice()">
+                        <option value="0">Наружный блок чистый / Не требуется (0 ₽)</option>
+                        <option value="5000">Требуется мойка наружного блока (+ 5 000 ₽)</option>
+                    </select>
+                </div>
+
+                <!-- 3. Сложный доступ -->
+                <div class="form-row">
+                    <label class="serif-text">3. Сложный доступ (Расстекление)</label>
+                    <span class="form-desc">Если блок спрятан за глухим окном и требуется аккуратное снятие стеклопакета.</span>
+                    <select id="glass" class="custom-select" onchange="calculateCleaningPrice()">
+                        <option value="0">Доступ свободный (0 ₽)</option>
+                        <option value="1500">Требуется снятие стеклопакета (+ 1 500 ₽)</option>
+                    </select>
+                </div>
+
+                <!-- Итог -->
+                <div class="result-box">
+                    <div class="price-label">Итоговая стоимость:</div>
+                    <div class="price-value"><span id="total-price">4 000</span> ₽</div>
+                    
+                    <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
+                        <button class="btn-submit" onclick="submitCleaningOrder()">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+                            </svg>
+                            Записаться в Telegram
+                        </button>
+                        
+                        <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}" class="btn-call">
+                            Согласовать по телефону
+                            <span>+7 (982) 222-64-29</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container" style="max-width: 800px;">
+            <div class="reviews-header" style="padding-top: 100px;">
+                <h2 class="serif-text">Частые вопросы</h2>
+            </div>
+
+            <details class="faq-item" open>
+                <summary>Будет ли грязь на обоях и лужи на полу?</summary>
+                <p>Нет, я работаю со специальным сервис-пакетом (чехлом), который собирает всю воду и грязь в ведро. Ваши стены и пол останутся абсолютно чистыми.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Кондиционер плохо холодит. Нужно заправлять фреон?</summary>
+                <p>В 90% случаев проблема кроется в забитом грязью барабане (вентиляторе) и радиаторе. Фреон нужно дозаправлять крайне редко. Начинать всегда стоит с глубокой чистки.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Как часто нужно делать чистку?</summary>
+                <p>Для домашней сплит-системы рекомендуется проводить профессиональную мойку 1 раз в год, желательно перед началом летнего сезона.</p>
+            </details>
+
+            <details class="faq-item">
+                <summary>Сколько по времени занимает процедура?</summary>
+                <p>Глубокая чистка внутреннего блока занимает около 1 – 1.5 часов, в зависимости от степени загрязнения.</p>
+            </details>
+        </div>
+    </section>
+
+    <!-- ФИНАЛЬНЫЙ CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2 class="serif-text">Готовы вернуть морозную свежесть?</h2>
+            <p>Выберем удобное для вас время и дату обслуживания</p>
+            <a href="#calculator" class="hero-cta">Посмотреть прайс-лист</a>
+        </div>
+    </section>
+
+    <!-- ФУТЕР -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Сургут</div>
+            <p>Профессиональный монтаж и обслуживание кондиционеров в Сургуте.</p>
+            <p>Гарантия на выполненную работу — 3 месяца.</p>
+            <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.7;">© 2026 Все права защищены.</p>
+        </div>
+    </footer>
+
+    <!-- ПЛАВАЮЩАЯ ПАНЕЛЬ ДЛЯ МОБИЛЬНЫХ -->
+    <div class="mobile-sticky-cta">
+        <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">Позвонить</a>
+        <button onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'}); ">Прайс</button>
+    </div>
+
+    <script>
+        function calculateCleaningPrice() {
+            const indoorPrice = parseInt(document.getElementById('indoor').value);
+            const outdoorPrice = parseInt(document.getElementById('outdoor').value);
+            const glassPrice = parseInt(document.getElementById('glass').value);
+            
+            const total = indoorPrice + outdoorPrice + glassPrice;
+            
+            document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+        function submitCleaningOrder() {
+            const outdoorSelect = document.getElementById('outdoor');
+            const outdoorText = outdoorSelect.options[outdoorSelect.selectedIndex].text.split(' (')[0];
+            
+            const glassSelect = document.getElementById('glass');
+            const glassText = glassSelect.options[glassSelect.selectedIndex].text.split(' (')[0];
+            
+            const totalPrice = document.getElementById('total-price').innerText;
+
+            let message = "Здравствуйте! Хочу записаться на профессиональную чистку кондиционера.\n\n";
+            message += "📋 Мой расчет:\n";
+            message += `▪️ Внутренний блок: Глубокая чистка с химией\n`;
+            message += `▪️ Наружный блок: ${outdoorText}\n`;
+            message += `▪️ Доступ к окну: ${glassText}\n\n`;
+            message += `💰 Оценочная стоимость: ${totalPrice} ₽\n\n`;
+            message += "Подскажите, на какое ближайшее время есть свободные окна?";
+
+            const encodedMessage = encodeURIComponent(message);
+            const telegramNumber = "+79822226429";
+
+            // Отправляем цель в Яндекс.Метрику (можно создать отдельную цель для чистки)
+            if (typeof ym === 'function') {
+                ym(110783414, 'reachGoal', 'order_submit');
+            }
+            
+            window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        window.onload = calculateCleaningPrice;
+    </script>
+
+</body>
+</html>
