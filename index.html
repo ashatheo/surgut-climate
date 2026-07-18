@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Установка сплит-систем в Сургуте | Гарантия 1 год, выезд бесплатно</title>
-    <meta name="description" content="Профессиональная установка кондиционеров в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
-    <meta property="og:title" content="Установка сплит-систем в Сургуте">
+    <title>Установка кондиционеров и сплит-систем в Сургуте | Гарантия 1 год</title>
+    <meta name="description" content="Профессиональная установка кондиционеров и сплит-систем в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера.">
+    <meta property="og:title" content="Установка кондиционеров и сплит-систем в Сургуте">
     <meta property="og:description" content="Ровные трассы, алмазное бурение, гарантия 1 год. Рассчитайте стоимость онлайн за 1 минуту.">
     <meta property="og:type" content="website">
 
@@ -70,8 +70,9 @@
         .status a:hover { opacity: 0.7; }
 
         .hero { padding: 100px 0 80px 0; text-align: center; }
-        .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 35px auto; color: var(--muted-light); }
+        /* Адаптивный размер шрифта для заголовка */
+        .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.1; }
+        .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 35px auto; color: var(--muted-light); }
 
         .hero-cta {
             display: inline-block; background-color: #000; color: #fff; text-decoration: none; padding: 18px 45px;
@@ -128,16 +129,15 @@
         .btn-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
             background-color: #000; color: #fff; padding: 20px 50px; font-size: 1rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease; width: 100%; max-width: 400px;
+            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease;
         }
         .btn-submit svg { width: 20px; height: 20px; fill: currentColor; }
         .btn-submit:hover { background-color: #333; }
 
-        /* --- БЛОК ОТЗЫВОВ (СВЕТЛЫЙ) --- */
+        /* --- БЛОК ОТЗЫВОВ --- */
         .reviews-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 100px 0; scroll-margin-top: 80px; }
         .reviews-header { text-align: center; margin-bottom: 60px; }
         .reviews-header h2 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
-        .reviews-header p { color: var(--muted-light); font-size: 1rem; }
 
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .review-card {
@@ -152,88 +152,40 @@
         .review-date { font-size: 0.8rem; color: var(--muted-light); }
         .review-service { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted-light); margin-top: 5px; }
 
-        /* --- СТИЛИ ДЛЯ ВСПЛЫВАЮЩЕГО ОКНА ОТЗЫВОВ --- */
-        .modal-overlay {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); z-index: 1000;
-            justify-content: center; align-items: center; padding: 20px;
-        }
-        .modal-content {
-            background-color: #fff; color: #111; padding: 40px; width: 100%; max-width: 500px;
-            position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: modalFadeIn 0.3s ease;
-            max-height: 90vh; overflow-y: auto;
-        }
-        @keyframes modalFadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .modal-close {
-            position: absolute; top: 20px; right: 20px; font-size: 1.8rem; line-height: 1;
-            cursor: pointer; color: #999; transition: color 0.3s;
-        }
+        /* --- МОДАЛЬНОЕ ОКНО --- */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.8); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { background-color: #fff; color: #111; padding: 40px; width: 100%; max-width: 500px; position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: modalFadeIn 0.3s ease; max-height: 90vh; overflow-y: auto; }
+        @keyframes modalFadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .modal-close { position: absolute; top: 20px; right: 20px; font-size: 1.8rem; line-height: 1; cursor: pointer; color: #999; transition: color 0.3s; }
         .modal-close:hover { color: #000; }
-
         .review-form .form-group { margin-bottom: 20px; }
         .review-form label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #555; }
-        .review-form input[type="text"], 
-        .review-form select, 
-        .review-form textarea {
-            width: 100%; padding: 15px; border: 1px solid #ddd; background: #fafafa;
-            font-family: 'Manrope', sans-serif; font-size: 1rem; transition: border-color 0.3s;
-        }
-        .review-form input[type="text"]:focus, 
-        .review-form select:focus, 
-        .review-form textarea:focus { outline: none; border-color: #000; background: #fff; }
+        .review-form input[type="text"], .review-form select, .review-form textarea { width: 100%; padding: 15px; border: 1px solid #ddd; background: #fafafa; font-family: 'Manrope', sans-serif; font-size: 1rem; transition: border-color 0.3s; }
+        .review-form input:focus, .review-form select:focus, .review-form textarea:focus { outline: none; border-color: #000; background: #fff; }
 
-        /* --- FAQ --- */
+        /* --- FAQ И ФУТЕР --- */
         .faq-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 0 0 100px 0; }
         .faq-item { border-bottom: 1px solid var(--border-light); padding: 25px 0; }
         .faq-item summary { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-        .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary::after { content: "+"; font-size: 1.5rem; font-family: 'Manrope', sans-serif; font-weight: 300; margin-left: 20px; }
         .faq-item[open] summary::after { content: "–"; }
         .faq-item p { margin-top: 15px; color: var(--muted-light); font-size: 0.95rem; max-width: 700px; }
-
-        /* --- ФИНАЛЬНЫЙ CTA --- */
         .final-cta { background-color: var(--bg-dark); color: var(--text-dark-bg); padding: 80px 0; text-align: center; }
-        .final-cta h2 { font-size: 2rem; margin-bottom: 15px; }
-        .final-cta p { color: var(--muted-dark); margin-bottom: 35px; }
-
-        /* --- ФУТЕР --- */
         footer { background-color: var(--bg-light); border-top: 1px solid var(--border-light); padding: 40px 0; text-align: center; color: var(--muted-light); font-size: 0.85rem; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-light-bg); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- АДАПТИВНОСТЬ И МОБИЛЬНАЯ ПАНЕЛЬ --- */
-        .mobile-sticky-cta { display: none; }
-
+        /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 768px) {
             nav { flex-direction: column; text-align: center; gap: 20px; }
-            .logo { flex-direction: column; align-items: center; gap: 10px; }
             .status { flex-direction: column; gap: 8px; }
             .status span { display: none; } 
-            
-            .trust-item { font-size: 0.7rem; }
-            .trust-item b { font-size: 1.1rem; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
-            
-            .calc-wrapper, .review-card { padding: 25px; }
-            .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
-            .price-value { font-size: 3rem; }
-            .btn-submit { width: 100%; padding: 20px; }
-            .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
-            .hero-cta { width: 100%; padding: 18px; }
-            
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
-
             .mobile-sticky-cta {
                 display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
-                background: #000; border-top: 1px solid #333;
-                padding-bottom: env(safe-area-inset-bottom);
+                background: #000; border-top: 1px solid #333; padding-bottom: env(safe-area-inset-bottom);
             }
             .mobile-sticky-cta a, .mobile-sticky-cta button {
-                flex: 1; border: none; background: transparent; color: #fff; padding: 18px 10px;
-                font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
-                letter-spacing: 0.5px; text-decoration: none; text-align: center; cursor: pointer;
+                flex: 1; border: none; background: transparent; color: #fff; padding: 18px 10px; font-weight: 600; text-transform: uppercase; cursor: pointer;
             }
             .mobile-sticky-cta a:first-child { border-right: 1px solid #333; }
         }
@@ -241,7 +193,6 @@
 </head>
 <body>
 
-    <!-- СВЕТЛЫЙ БЛОК (ШАПКА) -->
     <div class="light-section">
         <nav class="container">
             <div class="logo serif-text">
@@ -259,8 +210,8 @@
         </nav>
 
         <header class="hero container">
-            <h1>Установка<br>Сплит Систем</h1>
-            <p>Архитектурный подход к установке сплит-систем в Сургуте. Ровные трассы, алмазное бурение и бережное отношение к вашему интерьеру.</p>
+            <h1>Установка кондиционеров<br>и сплит-систем</h1>
+            <p>Архитектурный подход к установке кондиционеров в Сургуте. Ровные трассы, алмазное бурение и бережное отношение к вашему интерьеру.</p>
             <a href="#calculator" class="hero-cta">Рассчитать стоимость за 1 минуту</a>
         </header>
 
