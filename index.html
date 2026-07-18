@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Установка кондиционеров и сплит-систем в Сургуте | Гарантия 1 год</title>
-    <meta name="description" content="Профессиональная установка кондиционеров и сплит-систем в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера.">
+    <meta name="description" content="Профессиональная установка кондиционеров и сплит-систем в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
     <meta property="og:title" content="Установка кондиционеров и сплит-систем в Сургуте">
     <meta property="og:description" content="Ровные трассы, алмазное бурение, гарантия 1 год. Рассчитайте стоимость онлайн за 1 минуту.">
     <meta property="og:type" content="website">
@@ -70,7 +70,6 @@
         .status a:hover { opacity: 0.7; }
 
         .hero { padding: 100px 0 80px 0; text-align: center; }
-        /* Адаптивный размер шрифта для заголовка */
         .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; line-height: 1.1; }
         .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 35px auto; color: var(--muted-light); }
 
@@ -129,15 +128,23 @@
         .btn-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
             background-color: #000; color: #fff; padding: 20px 50px; font-size: 1rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease;
+            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease; width: 100%; max-width: 400px;
         }
         .btn-submit svg { width: 20px; height: 20px; fill: currentColor; }
         .btn-submit:hover { background-color: #333; }
+
+        .btn-call {
+            text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+        }
+        .btn-call span { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
 
         /* --- БЛОК ОТЗЫВОВ --- */
         .reviews-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 100px 0; scroll-margin-top: 80px; }
         .reviews-header { text-align: center; margin-bottom: 60px; }
         .reviews-header h2 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
+        .reviews-header p { color: var(--muted-light); font-size: 1rem; }
 
         .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .review-card {
@@ -167,25 +174,51 @@
         .faq-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 0 0 100px 0; }
         .faq-item { border-bottom: 1px solid var(--border-light); padding: 25px 0; }
         .faq-item summary { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.1rem; cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        .faq-item summary::-webkit-details-marker { display: none; }
         .faq-item summary::after { content: "+"; font-size: 1.5rem; font-family: 'Manrope', sans-serif; font-weight: 300; margin-left: 20px; }
         .faq-item[open] summary::after { content: "–"; }
         .faq-item p { margin-top: 15px; color: var(--muted-light); font-size: 0.95rem; max-width: 700px; }
+        
         .final-cta { background-color: var(--bg-dark); color: var(--text-dark-bg); padding: 80px 0; text-align: center; }
+        .final-cta h2 { font-size: 2rem; margin-bottom: 15px; }
+        .final-cta p { color: var(--muted-dark); margin-bottom: 35px; }
+        
         footer { background-color: var(--bg-light); border-top: 1px solid var(--border-light); padding: 40px 0; text-align: center; color: var(--muted-light); font-size: 0.85rem; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--text-light-bg); margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
 
         /* --- АДАПТИВНОСТЬ --- */
+        .mobile-sticky-cta { display: none; }
+
         @media (max-width: 768px) {
             nav { flex-direction: column; text-align: center; gap: 20px; }
+            .logo { flex-direction: column; align-items: center; gap: 10px; }
             .status { flex-direction: column; gap: 8px; }
             .status span { display: none; } 
+            
+            .trust-item { font-size: 0.7rem; }
+            .trust-item b { font-size: 1.1rem; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
+            
+            .calc-wrapper, .review-card { padding: 25px; }
+            
+            /* --- ФИКС ДЛЯ ОПИСАНИЯ ПАКЕТА (В ОДНУ КОЛОНКУ) --- */
+            .package-includes-grid { grid-template-columns: 1fr; gap: 15px; }
+            .package-includes { padding: 20px; }
+            .includes-list li { font-size: 0.95rem; margin-bottom: 12px; }
+
+            .price-value { font-size: 3rem; }
+            .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
+            .btn-submit { width: 100%; padding: 20px; }
+            .hero-cta { width: 100%; padding: 18px; }
+            
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
+
             .mobile-sticky-cta {
                 display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
                 background: #000; border-top: 1px solid #333; padding-bottom: env(safe-area-inset-bottom);
             }
             .mobile-sticky-cta a, .mobile-sticky-cta button {
-                flex: 1; border: none; background: transparent; color: #fff; padding: 18px 10px; font-weight: 600; text-transform: uppercase; cursor: pointer;
+                flex: 1; border: none; background: transparent; color: #fff; padding: 18px 10px; font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; text-align: center; cursor: pointer;
             }
             .mobile-sticky-cta a:first-child { border-right: 1px solid #333; }
         }
@@ -225,7 +258,6 @@
         </div>
     </div>
 
-    <!-- ТЕМНЫЙ БЛОК (КАЛЬКУЛЯТОР) -->
     <section class="dark-section" id="calculator">
         <div class="container">
             <div class="calc-header">
@@ -234,7 +266,6 @@
 
             <div class="calc-wrapper">
                 
-                <!-- 1. Выбор пакета -->
                 <div class="form-row">
                     <label class="serif-text">1. Базовый пакет «Под ключ»</label>
                     <span class="form-desc">Выберите пакет в зависимости от мощности вашей системы.</span>
@@ -245,7 +276,6 @@
                     </select>
                 </div>
 
-                <!-- Блок "Что входит в пакет" -->
                 <div class="package-includes">
                     <h3 class="serif-text">Состав базового пакета:</h3>
                     <div class="package-includes-grid">
@@ -274,7 +304,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Дополнительная трасса -->
                 <div class="form-row">
                     <label class="serif-text">2. Дополнительные метры трассы</label>
                     <span class="form-desc">Укажите, сколько <b>дополнительных</b> метров потребуется свыше базовых 3-х метров (2 400 ₽ / метр).</span>
@@ -285,7 +314,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Кабель-канал -->
                 <div class="form-row">
                     <label class="serif-text">3. Декоративный кабель-канал для трассы</label>
                     <span class="form-desc">В метрах. Оставьте 0, если монтаж скрытый (в штробе). (2 400 ₽ / метр).</span>
@@ -296,7 +324,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Дополнительные отверстия -->
                 <div class="form-row">
                     <label class="serif-text">4. Дополнительные отверстия</label>
                     <span class="form-desc">Если монтаж производится через балкон или лоджию. Одно отверстие уже включено в пакет (6 000 ₽ / шт).</span>
@@ -307,7 +334,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Этаж -->
                 <div class="form-row">
                     <label class="serif-text">5. Этаж проведения работ</label>
                     <span class="form-desc">Высотные работы: +2 000 ₽ за каждые 5 этажей свыше пятого.</span>
@@ -318,7 +344,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Защита мебели -->
                 <div class="form-row">
                     <label class="serif-text">6. Подготовка помещения</label>
                     <span class="form-desc">Укрытие мебели и элементов интерьера защитной пленкой.</span>
@@ -328,7 +353,6 @@
                     </select>
                 </div>
 
-                <!-- Итог -->
                 <div class="result-box">
                     <div class="price-label">Итоговая смета:</div>
                     <div class="price-value"><span id="total-price">24 600</span> ₽</div>
@@ -481,7 +505,7 @@
 
             <!-- Кнопка "Оставить отзыв" -->
             <div style="text-align: center; margin-top: 60px;">
-                <h3 class="serif-text" style="font-size: 1.5rem; margin-bottom: 15px;">Оставьте свой отзыв</h3>
+                <h3 class="serif-text" style="font-size: 1.5rem; margin-bottom: 15px;">Уже работали со мной?</h3>
                 <button onclick="openReviewModal()" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: transparent; color: #111; padding: 15px 40px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid #111; cursor: pointer; transition: all 0.3s; font-family: 'Manrope', sans-serif;">
                     Написать отзыв
                 </button>
@@ -664,7 +688,6 @@
             window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
         }
 
-        // Функции модального окна отзывов
         function openReviewModal() {
             document.getElementById('reviewModal').style.display = 'flex';
             document.body.style.overflow = 'hidden';
