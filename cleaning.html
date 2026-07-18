@@ -100,6 +100,12 @@
         .form-row label { display: block; font-size: 1.1rem; margin-bottom: 10px; color: var(--accent-dark); letter-spacing: 0.5px; }
         .form-desc { display: block; font-size: 0.85rem; color: var(--muted-dark); margin-bottom: 20px; }
 
+        /* Фиксированная плашка тарифа (без выбора) */
+        .fixed-service {
+            width: 100%; padding: 18px 20px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #444; color: #ffffff; font-size: 1.1rem; font-weight: 600;
+        }
+
         .custom-select {
             width: 100%; padding: 18px 45px 18px 20px; background-color: #1a1a1a; 
             background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
@@ -154,11 +160,22 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; text-align: center; gap: 20px; }
             .logo { flex-direction: column; align-items: center; gap: 10px; }
-            .hero-cta { width: 100%; padding: 18px; }
+            
+            /* Фикс для шапки (телефон строго под текстом) */
+            .status { flex-direction: column; gap: 8px; }
+            .status span { display: none; } /* Скрываем точку-разделитель */
+            
+            /* Уменьшаем шрифт преимуществ */
+            .trust-item { font-size: 0.7rem; }
+            .trust-item b { font-size: 1.1rem; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
+            
             .calc-wrapper { padding: 25px; }
             .price-value { font-size: 3rem; }
+            .fixed-service { font-size: 1rem; padding: 15px; }
             .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
+            .btn-submit { width: 100%; padding: 20px; }
+            .hero-cta { width: 100%; padding: 18px; }
             
             /* Отступ снизу для мобилок с учетом "челки" снизу на iPhone */
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
@@ -190,7 +207,7 @@
                 </div>
             </div>
             <div class="status">
-                Работаем по всему Сургуту <span style="margin: 0 10px;">•</span> 
+                Работаем по всему Сургуту <span>•</span> 
                 <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">+7 (982) 222-64-29</a>
             </div>
         </nav>
@@ -221,13 +238,16 @@
 
             <div class="calc-wrapper">
                 
-                <!-- 1. Внутренний блок -->
+                <!-- 1. Внутренний блок (Теперь без выбора, фиксированный текст) -->
                 <div class="form-row">
                     <label class="serif-text">1. Глубокая чистка внутреннего блока</label>
                     <span class="form-desc">Базовая услуга для восстановления ледяного потока и чистого воздуха.</span>
-                    <select id="indoor" class="custom-select" disabled>
-                        <option value="4000">Чистка внутреннего блока «Под ключ» — 4 000 ₽</option>
-                    </select>
+                    
+                    <div class="fixed-service">
+                        Чистка внутреннего блока + антибактериальная обработка — 4 000 ₽
+                    </div>
+                    <!-- Скрытое поле для работы калькулятора -->
+                    <input type="hidden" id="indoor" value="4000">
                 </div>
 
                 <!-- Блок "Что входит" -->
@@ -374,7 +394,7 @@
             const encodedMessage = encodeURIComponent(message);
             const telegramNumber = "+79822226429";
 
-            // Отправляем цель в Яндекс.Метрику (можно создать отдельную цель для чистки)
+            // Отправляем цель в Яндекс.Метрике (можно создать отдельную цель для чистки)
             if (typeof ym === 'function') {
                 ym(110783414, 'reachGoal', 'order_submit');
             }
