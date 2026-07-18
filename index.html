@@ -152,6 +152,17 @@
             display: flex; flex-direction: column; justify-content: space-between;
         }
         .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        
+        /* СТИЛЬ ДЛЯ ФОТО В ОТЗЫВАХ */
+        .review-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-light);
+        }
+
         .review-stars { color: var(--accent); font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 20px; }
         .review-text { font-size: 0.95rem; color: var(--muted-light); font-style: italic; margin-bottom: 30px; line-height: 1.8; flex-grow: 1; }
         .review-author-wrap { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--border-light); padding-top: 20px; }
@@ -413,6 +424,7 @@
 
                 <!-- Отзыв 3 -->
                 <div class="review-card">
+                    <img src="3.jpg" alt="Монтаж кондиционера" class="review-image">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Все сделано качественно.»</div>
                     <div>
@@ -439,6 +451,7 @@
 
                 <!-- Отзыв 5 -->
                 <div class="review-card">
+                    <img src="1.jpg" alt="Установка сплит-системы" class="review-image">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Всё, отлично! Парни молодцы, выполнили работу на 5+»</div>
                     <div>
@@ -452,6 +465,7 @@
 
                 <!-- Отзыв 6 -->
                 <div class="review-card">
+                    <img src="CFf0DxM9ODeg4dnNBuD92m9lVeW4pvpmC2xf36tkrXL319WSDUnaN4XpWPNM2qJqgWsKl180FN3zYkgtBuu08Eah.jpg_202607181545.jpeg" alt="Чистый монтаж" class="review-image">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Отличный мастер рекомендую. Приехал сделал все четко и быстро, профи своего дела!»</div>
                     <div>
@@ -478,6 +492,7 @@
 
                 <!-- Отзыв 8 -->
                 <div class="review-card">
+                    <img src="2.jpg" alt="Монтаж кондиционера" class="review-image">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Мастер отличный. проконсультровал, помог с выбором сплит системы, договорились о цене и времени. Работа была выполнена в полном объеме.»</div>
                     <div>
@@ -559,8 +574,7 @@
             <h3 class="serif-text" style="font-size: 1.8rem; margin-bottom: 20px;">Ваш отзыв</h3>
             <p style="font-size: 0.9rem; color: var(--muted-light); margin-bottom: 25px;">Поделитесь впечатлениями о работе. Ваш отзыв поможет другим клиентам сделать правильный выбор.</p>
             
-            <!-- Форма FormSubmit -->
-            <!-- ВНИМАНИЕ: Замени ТВОЯ_ПОЧТА@yandex.ru на свою реальную почту -->
+    <!-- ВНИМАНИЕ: Замени ТВОЯ_ПОЧТА@yandex.ru на свою реальную почту -->
             <form action="https://formsubmit.co/katyaagressor@yandex.com" method="POST" enctype="multipart/form-data" class="review-form">
                 <input type="hidden" name="_subject" value="Новый отзыв с сайта (Установка)!">
                 <input type="hidden" name="_captcha" value="false">
