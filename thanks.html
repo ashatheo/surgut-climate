@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Спасибо!</title>
+    <style>
+        body { font-family: 'Manrope', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #fdfdfd; text-align: center; }
+        .box { padding: 40px; }
+        h1 { font-family: 'Playfair Display', serif; margin-bottom: 20px; }
+        p { color: #666; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>Спасибо за ваш отзыв!</h1>
+        <p>Он отправлен на модерацию и скоро появится на сайте.</p>
+        <p>Сейчас вы будете перенаправлены на главную...</p>
+    </div>
+    <script>
+        // Автоматический переход на главную через 3 секунды
+        setTimeout(function() {
+            window.location.href = 'index.html';
+        }, 3000);
+    </script>
+</body>
+</html>
