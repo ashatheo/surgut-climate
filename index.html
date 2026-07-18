@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Установка сплит-систем в Сургуте | Гарантия 1 год, выезд бесплатно</title>
-    <meta name="description" content="Профессиона установка кондиционеров в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
+    <meta name="description" content="Профессиональная установка кондиционеров в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
     <meta property="og:title" content="Установка сплит-систем в Сургуте">
     <meta property="og:description" content="Ровные трассы, алмазное бурение, гарантия 1 год. Рассчитайте стоимость онлайн за 1 минуту.">
     <meta property="og:type" content="website">
@@ -45,6 +45,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
 
         body { font-family: 'Manrope', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
@@ -70,7 +71,7 @@
 
         .hero { padding: 100px 0 80px 0; text-align: center; }
         .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); text-transform: uppercase; margin-bottom: 20px; letter-spacing: -1px; }
-        .hero p { font-size: 1.1rem; max-width: 600px; margin: 0 auto 35px auto; color: var(--muted-light); }
+        .hero p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 35px auto; color: var(--muted-light); }
 
         .hero-cta {
             display: inline-block; background-color: #000; color: #fff; text-decoration: none; padding: 18px 45px;
@@ -89,7 +90,6 @@
         .calc-header h2 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
         .calc-wrapper { background: var(--bg-dark-panel); padding: 50px; border: 1px solid var(--border-dark); }
 
-        /* Блок "Что включено" */
         .package-includes { background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-dark); padding: 30px; margin-top: 20px; margin-bottom: 40px; }
         .package-includes h3 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent-dark); text-transform: uppercase; letter-spacing: 1px; }
         .package-includes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
@@ -98,7 +98,6 @@
         .includes-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent-dark); }
         .highlight-note { display: inline-block; margin-top: 15px; padding: 10px 15px; background: rgba(255,255,255,0.05); font-size: 0.85rem; color: var(--text-dark-bg); border-left: 2px solid var(--accent-dark); }
 
-        /* Формы */
         .form-row { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid var(--border-dark); }
         .form-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
         .form-row label { display: block; font-size: 1.1rem; margin-bottom: 10px; color: var(--accent-dark); letter-spacing: 0.5px; }
@@ -122,7 +121,6 @@
         .counter-btn:hover { border-color: var(--accent-dark); background: #2a2a2a; }
         .counter-value { font-size: 1.2rem; font-weight: 600; min-width: 40px; text-align: center; }
 
-        /* Итог */
         .result-box { margin-top: 50px; background: #ffffff; color: #000000; padding: 50px 40px; text-align: center; }
         .price-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
         .price-value { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 15px 0 30px 0; line-height: 1; }
@@ -130,13 +128,13 @@
         .btn-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
             background-color: #000; color: #fff; padding: 20px 50px; font-size: 1rem; font-weight: 600;
-            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease;
+            text-transform: uppercase; letter-spacing: 2px; border: none; cursor: pointer; transition: background 0.3s ease; width: 100%; max-width: 400px;
         }
         .btn-submit svg { width: 20px; height: 20px; fill: currentColor; }
         .btn-submit:hover { background-color: #333; }
 
         /* --- БЛОК ОТЗЫВОВ (СВЕТЛЫЙ) --- */
-        .reviews-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 100px 0; }
+        .reviews-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 100px 0; scroll-margin-top: 80px; }
         .reviews-header { text-align: center; margin-bottom: 60px; }
         .reviews-header h2 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
         .reviews-header p { color: var(--muted-light); font-size: 1rem; }
@@ -153,6 +151,39 @@
         .review-author { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 1.2rem; }
         .review-date { font-size: 0.8rem; color: var(--muted-light); }
         .review-service { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--muted-light); margin-top: 5px; }
+
+        /* --- СТИЛИ ДЛЯ ВСПЛЫВАЮЩЕГО ОКНА ОТЗЫВОВ --- */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); z-index: 1000;
+            justify-content: center; align-items: center; padding: 20px;
+        }
+        .modal-content {
+            background-color: #fff; color: #111; padding: 40px; width: 100%; max-width: 500px;
+            position: relative; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: modalFadeIn 0.3s ease;
+            max-height: 90vh; overflow-y: auto;
+        }
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-close {
+            position: absolute; top: 20px; right: 20px; font-size: 1.8rem; line-height: 1;
+            cursor: pointer; color: #999; transition: color 0.3s;
+        }
+        .modal-close:hover { color: #000; }
+
+        .review-form .form-group { margin-bottom: 20px; }
+        .review-form label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #555; }
+        .review-form input[type="text"], 
+        .review-form select, 
+        .review-form textarea {
+            width: 100%; padding: 15px; border: 1px solid #ddd; background: #fafafa;
+            font-family: 'Manrope', sans-serif; font-size: 1rem; transition: border-color 0.3s;
+        }
+        .review-form input[type="text"]:focus, 
+        .review-form select:focus, 
+        .review-form textarea:focus { outline: none; border-color: #000; background: #fff; }
 
         /* --- FAQ --- */
         .faq-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 0 0 100px 0; }
@@ -178,12 +209,9 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; text-align: center; gap: 20px; }
             .logo { flex-direction: column; align-items: center; gap: 10px; }
-            
-            /* Фикс для шапки (телефон строго под текстом) */
             .status { flex-direction: column; gap: 8px; }
-            .status span { display: none; } /* Скрываем точку-разделитель */
+            .status span { display: none; } 
             
-            /* Уменьшаем шрифт преимуществ */
             .trust-item { font-size: 0.7rem; }
             .trust-item b { font-size: 1.1rem; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
@@ -195,7 +223,6 @@
             .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
             .hero-cta { width: 100%; padding: 18px; }
             
-            /* Отступ снизу для мобилок с учетом "челки" снизу на iPhone */
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
 
             .mobile-sticky-cta {
@@ -221,7 +248,8 @@
                 Сургут
                 <div class="nav-links">
                     <a href="index.html" class="active" style="color: var(--text-light-bg); margin-right: 15px;">Установка</a>
-                    <a href="cleaning.html">Чистка</a>
+                    <a href="cleaning.html" style="margin-right: 15px;">Чистка</a>
+                    <a href="#reviews">Отзывы</a>
                 </div>
             </div>
             <div class="status">
@@ -374,7 +402,7 @@
     </section>
 
     <!-- СВЕТЛЫЙ БЛОК (ОТЗЫВЫ) -->
-    <section class="reviews-section">
+    <section class="reviews-section" id="reviews">
         <div class="container">
             <div class="reviews-header">
                 <h2 class="serif-text">Репутация в деталях</h2>
@@ -382,7 +410,6 @@
             </div>
             
             <div class="reviews-grid">
-                
                 <!-- Отзыв 1 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
@@ -499,8 +526,16 @@
                         <div class="review-service">Установка с гарантией</div>
                     </div>
                 </div>
-
             </div>
+
+            <!-- Кнопка "Оставить отзыв" -->
+            <div style="text-align: center; margin-top: 60px;">
+                <h3 class="serif-text" style="font-size: 1.5rem; margin-bottom: 15px;">Уже работали со мной?</h3>
+                <button onclick="openReviewModal()" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: transparent; color: #111; padding: 15px 40px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid #111; cursor: pointer; transition: all 0.3s; font-family: 'Manrope', sans-serif;">
+                    Написать отзыв
+                </button>
+            </div>
+
         </div>
     </section>
 
@@ -541,6 +576,49 @@
             <a href="#calculator" class="hero-cta">Вернуться к расчёту</a>
         </div>
     </section>
+
+    <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ОТЗЫВА -->
+    <div id="reviewModal" class="modal-overlay">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeReviewModal()">&times;</span>
+            <h3 class="serif-text" style="font-size: 1.8rem; margin-bottom: 20px;">Ваш отзыв</h3>
+            <p style="font-size: 0.9rem; color: var(--muted-light); margin-bottom: 25px;">Поделитесь впечатлениями о работе. Ваш отзыв поможет другим клиентам сделать правильный выбор.</p>
+            
+            <!-- Форма FormSubmit -->
+            <!-- ВНИМАНИЕ: Замени ТВОЯ_ПОЧТА@yandex.ru на свою реальную почту -->
+            <form action="https://formsubmit.co/katyaagressor@yandex.com" method="POST" enctype="multipart/form-data" class="review-form">
+                <input type="hidden" name="_subject" value="Новый отзыв с сайта (Установка)!">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_next" value="https://твой-домен.ru/index.html">
+
+                <div class="form-group">
+                    <label>Ваше имя</label>
+                    <input type="text" name="Имя" required placeholder="Например, Александр">
+                </div>
+
+                <div class="form-group">
+                    <label>Оценка</label>
+                    <select name="Оценка" required>
+                        <option value="5">★★★★★ — Отлично</option>
+                        <option value="4">★★★★☆ — Хорошо</option>
+                        <option value="3">★★★☆☆ — Нормально</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Текст отзыва</label>
+                    <textarea name="Отзыв" rows="4" required placeholder="Напишите, как всё прошло..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Прикрепить фото (необязательно)</label>
+                    <input type="file" name="Фото" accept="image/*" style="padding: 10px 0;">
+                </div>
+
+                <button type="submit" class="btn-submit" style="width: 100%;">Отправить отзыв</button>
+            </form>
+        </div>
+    </div>
 
     <!-- ФУТЕР -->
     <footer>
@@ -605,7 +683,6 @@
             document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
 
-        // Функция отправки заявки в Telegram
         function submitOrder() {
             const packageSelect = document.getElementById('package');
             const packageText = packageSelect.options[packageSelect.selectedIndex].text.split(' — ')[0];
@@ -627,16 +704,24 @@
             message += "Подскажите, когда возможен выезд инженера на бесплатный замер?";
 
             const encodedMessage = encodeURIComponent(message);
-            
-            // Номер Telegram в международном формате
             const telegramNumber = "+79822226429";
 
-            // Цель для отслеживания конверсии в Яндекс.Метрике
             if (typeof ym === 'function') {
                 ym(110783414, 'reachGoal', 'order_submit');
             }
             
             window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Функции модального окна отзывов
+        function openReviewModal() {
+            document.getElementById('reviewModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeReviewModal() {
+            document.getElementById('reviewModal').style.display = 'none';
+            document.body.style.overflow = 'auto';
         }
 
         window.onload = calculatePrice;
