@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Установка сплит-систем в Сургуте | Гарантия 1 год, выезд бесплатно</title>
-    <meta name="description" content="Профессиональная установка кондиционеров в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
+    <meta name="description" content="Профессиона установка кондиционеров в Сургуте. Алмазное бурение, ровные трассы, гарантия 1 год. Бесплатный выезд инженера и расчёт стоимости онлайн.">
     <meta property="og:title" content="Установка сплит-систем в Сургуте">
     <meta property="og:description" content="Ровные трассы, алмазное бурение, гарантия 1 год. Рассчитайте стоимость онлайн за 1 минуту.">
     <meta property="og:type" content="website">
@@ -178,7 +178,16 @@
         @media (max-width: 768px) {
             nav { flex-direction: column; text-align: center; gap: 20px; }
             .logo { flex-direction: column; align-items: center; gap: 10px; }
+            
+            /* Фикс для шапки (телефон строго под текстом) */
+            .status { flex-direction: column; gap: 8px; }
+            .status span { display: none; } /* Скрываем точку-разделитель */
+            
+            /* Уменьшаем шрифт преимуществ */
+            .trust-item { font-size: 0.7rem; }
+            .trust-item b { font-size: 1.1rem; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
+            
             .calc-wrapper, .review-card { padding: 25px; }
             .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
             .price-value { font-size: 3rem; }
@@ -186,7 +195,7 @@
             .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
             .hero-cta { width: 100%; padding: 18px; }
             
-            /* Отступ для мобильных устройств от системной полосы */
+            /* Отступ снизу для мобилок с учетом "челки" снизу на iPhone */
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
 
             .mobile-sticky-cta {
@@ -196,8 +205,8 @@
             }
             .mobile-sticky-cta a, .mobile-sticky-cta button {
                 flex: 1; border: none; background: transparent; color: #fff; padding: 18px 10px;
-                font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 600;
-                text-transform: uppercase; letter-spacing: 0.5px; text-decoration: none; text-align: center; cursor: pointer;
+                font-family: 'Manrope', sans-serif; font-size: 0.8rem; font-weight: 600; text-transform: uppercase;
+                letter-spacing: 0.5px; text-decoration: none; text-align: center; cursor: pointer;
             }
             .mobile-sticky-cta a:first-child { border-right: 1px solid #333; }
         }
@@ -216,7 +225,7 @@
                 </div>
             </div>
             <div class="status">
-                Бесплатный замер и согласование <span style="margin: 0 10px;">•</span> 
+                Бесплатный замер и согласование <span>•</span> 
                 <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">+7 (982) 222-64-29</a>
             </div>
         </nav>
