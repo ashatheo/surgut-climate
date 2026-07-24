@@ -140,20 +140,34 @@
         }
         .btn-call span { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
 
-        /* --- БЛОК ОТЗЫВОВ --- */
+        /* --- БЛОК ОТЗЫВОВ (КАРУСЕЛЬ) --- */
         .reviews-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 100px 0; scroll-margin-top: 80px; }
         .reviews-header { text-align: center; margin-bottom: 60px; }
         .reviews-header h2 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
         .reviews-header p { color: var(--muted-light); font-size: 1rem; }
 
-        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        /* Контейнер карусели */
+        .reviews-carousel {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none; /* Скрываем скроллбар IE/Edge */
+            scrollbar-width: none; /* Скрываем скроллбар Firefox */
+        }
+        .reviews-carousel::-webkit-scrollbar {
+            display: none; /* Скрываем скроллбар Chrome/Safari */
+        }
+
         .review-card {
-            background: #fff; padding: 40px; border: 1px solid var(--border-light); transition: transform 0.3s ease;
+            flex: 0 0 320px; /* Фиксированная ширина карточки */
+            background: #fff; padding: 30px; border: 1px solid var(--border-light); transition: transform 0.3s ease;
             display: flex; flex-direction: column; justify-content: space-between;
+            scroll-snap-align: center; border-radius: 12px;
         }
         .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
         
-        /* СТИЛЬ ДЛЯ ФОТО В ОТЗЫВАХ */
         .review-image {
             width: 100%;
             height: 220px;
@@ -395,8 +409,22 @@
                 <p>Что говорят клиенты о нашем подходе к работе</p>
             </div>
             
-            <div class="reviews-grid">
-                <!-- Отзыв 1 -->
+            <div class="reviews-carousel">
+                
+                <!-- Отзыв 1 (Новый) -->
+                <div class="review-card">
+                    <div class="review-stars">★★★★<span style="opacity: 0.3;">★</span></div>
+                    <div class="review-text">«На замер немного опоздали, но ничего страшного, работали быстро и аккуратно. Использовали пылесос при бурении стены. Монтаж занял около 2,5 часов, блок висит ровно, трубы уложены аккуратно. Стоимость оказалась ровно такой, как договаривались в начале.»</div>
+                    <div>
+                        <div class="review-author-wrap">
+                            <span class="review-author">Евгений</span>
+                            <span class="review-date">21.07.2026</span>
+                        </div>
+                        <div class="review-service">Установка сплит-системы</div>
+                    </div>
+                </div>
+
+                <!-- Отзыв 2 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Отличный мастер, с момента звонка до момента подключения кондиционера прошло 3 часа, все четко, о цене договорились 🤝 Требовалось подключить трассу между наружним и внутренним блоком на даче. Демократичная цена, удивился что не такая как у большинства, где порой выходит как стоимость самого кондиционера 😳 Оказанной услугой полностью довольны 👍 Спасибо большое, буду рекомендовать.»</div>
@@ -409,7 +437,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 2 -->
+                <!-- Отзыв 3 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Приехал мастер все замерил, договорились об установке на следующий день. С утра приехали стали устанавливать, работу выполнили качественно, осталась довольна, в следующем году планирую новую покупку и конечно же обращусь еще раз. Особенно понравилось как они установили внешний блок, аккуратно ни чего не торчит😊»</div>
@@ -422,7 +450,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 3 -->
+                <!-- Отзыв 4 -->
                 <div class="review-card">
                     <img src="3.jpg" alt="Монтаж кондиционера" class="review-image">
                     <div class="review-stars">★★★★★</div>
@@ -436,7 +464,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 4 -->
+                <!-- Отзыв 5 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Отличный мастер и хороший человек. Приехал в назначенное время, сделал работу профессионально, всем довольны»</div>
@@ -449,7 +477,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 5 -->
+                <!-- Отзыв 6 -->
                 <div class="review-card">
                     <img src="1.jpg" alt="Установка сплит-системы" class="review-image">
                     <div class="review-stars">★★★★★</div>
@@ -463,7 +491,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 6 -->
+                <!-- Отзыв 7 -->
                 <div class="review-card">
                     <img src="CFf0DxM9ODeg4dnNBuD92m9lVeW4pvpmC2xf36tkrXL319WSDUnaN4XpWPNM2qJqgWsKl180FN3zYkgtBuu08Eah.jpg_202607181545.jpeg" alt="Чистый монтаж" class="review-image">
                     <div class="review-stars">★★★★★</div>
@@ -477,7 +505,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 7 -->
+                <!-- Отзыв 8 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Рекомендую данного мастера, приехал во время, сделал работу на отлично!»</div>
@@ -490,7 +518,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 8 -->
+                <!-- Отзыв 9 -->
                 <div class="review-card">
                     <img src="2.jpg" alt="Монтаж кондиционера" class="review-image">
                     <div class="review-stars">★★★★★</div>
@@ -504,7 +532,7 @@
                     </div>
                 </div>
 
-                <!-- Отзыв 9 -->
+                <!-- Отзыв 10 -->
                 <div class="review-card">
                     <div class="review-stars">★★★★★</div>
                     <div class="review-text">«Сплит-система установлена отлично, мастер приехал во время, установил быстро и аккуратно, объяснил как пользоваться, дал гарантию год на свою работу🙏»</div>
