@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Чистка кондиционеров | Сургут</title>
+    <title>Установка бризеров и приточной вентиляции в Сургуте</title>
+    <meta name="description" content="Профессиональная установка бризеров Xiaomi, Tion, Ballu, Aeropac, Vakio, Winzel и других в Сургуте. Аккуратное сквозное бурение, шумоизоляция, гарантия на работы.">
+    <meta property="og:title" content="Установка бризеров и приточной вентиляции в Сургуте">
+    <meta property="og:description" content="Аккуратное бурение, шумо- и теплоизоляция, монтаж прибора под ключ. Прозрачный прайс-лист.">
+    <meta property="og:type" content="website">
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
@@ -18,7 +22,7 @@
     </script>
     <noscript><div><img src="https://mc.yandex.ru/watch/110783414" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
     <!-- /Yandex.Metrika counter -->
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
@@ -29,13 +33,13 @@
             --text-light-bg: #111111;
             --muted-light: #666666;
             --border-light: #e5e5e5;
-            
+
             --bg-dark: #0a0a0a;
             --bg-dark-panel: #141414;
             --text-dark-bg: #f5f5f5;
             --muted-dark: #888888;
             --border-dark: #333333;
-            
+
             --accent: #000000;
             --accent-dark: #ffffff;
         }
@@ -81,7 +85,7 @@
         .trust-item { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted-light); }
         .trust-item b { display: block; font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--text-light-bg); text-transform: none; letter-spacing: 0; margin-bottom: 5px; }
 
-        /* --- ТЕМНАЯ ЧАСТЬ (КАЛЬКУЛЯТОР) --- */
+        /* --- ТЕМНАЯ ЧАСТЬ (ЧТО ВХОДИТ / ПРАЙС) --- */
         .dark-section { background-color: var(--bg-dark); color: var(--text-dark-bg); padding: 100px 0; }
         .calc-header { text-align: center; margin-bottom: 60px; }
         .calc-header h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin-bottom: 10px; letter-spacing: 1px; }
@@ -92,32 +96,22 @@
         .includes-list { list-style: none; }
         .includes-list li { position: relative; padding-left: 20px; font-size: 0.9rem; color: var(--muted-dark); margin-bottom: 10px; }
         .includes-list li::before { content: "—"; position: absolute; left: 0; color: var(--accent-dark); }
-        .bonus-box { display: inline-block; margin-top: 20px; padding: 15px 25px; border: 1px solid var(--accent-dark); background: rgba(255,255,255,0.05); font-size: 0.9rem; color: var(--accent-dark); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
 
         .form-row { margin-bottom: 40px; padding-bottom: 30px; border-bottom: 1px solid var(--border-dark); }
         .form-row:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
         .form-row label { display: block; font-size: 1.1rem; margin-bottom: 10px; color: var(--accent-dark); letter-spacing: 0.5px; }
         .form-desc { display: block; font-size: 0.85rem; color: var(--muted-dark); margin-bottom: 20px; }
 
-        .fixed-service {
-            width: 100%; padding: 18px 20px; background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #444; color: #ffffff; font-size: 1.1rem; font-weight: 600;
+        /* --- ПРАЙС-ЛИСТ --- */
+        .price-list { list-style: none; }
+        .price-row {
+            display: flex; justify-content: space-between; align-items: baseline; gap: 20px;
+            padding: 18px 0; border-bottom: 1px solid var(--border-dark);
         }
+        .price-row:last-child { border-bottom: none; }
+        .price-row-name { font-size: 1rem; color: var(--text-dark-bg); }
+        .price-row-value { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--accent-dark); white-space: nowrap; }
 
-        .custom-select {
-            width: 100%; padding: 18px 45px 18px 20px; background-color: #1a1a1a; 
-            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-            background-repeat: no-repeat; background-position: right 20px center; background-size: 18px;
-            border: 1px solid #444; color: #ffffff; font-size: 1.1rem; font-weight: 600; 
-            font-family: 'Manrope', sans-serif; appearance: none; -webkit-appearance: none; -moz-appearance: none; cursor: pointer; border-radius: 0; transition: all 0.3s;
-        }
-        .custom-select:focus { outline: none; border-color: var(--accent-dark); background-color: #222; }
-        .custom-select option { background: var(--bg-dark-panel); color: var(--text-dark-bg); }
-
-        .result-box { margin-top: 50px; background: #ffffff; color: #000000; padding: 50px 40px; text-align: center; }
-        .price-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
-        .price-value { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 15px 0 30px 0; line-height: 1; }
-        
         .btn-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
             background-color: #000; color: #fff; padding: 20px 50px; font-size: 1rem; font-weight: 600;
@@ -132,6 +126,9 @@
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
         }
         .btn-call span { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        .actions-box { margin-top: 50px; text-align: center; }
+        .actions-box-inner { display: flex; flex-direction: column; gap: 15px; align-items: center; }
 
         /* --- БЛОК ОТЗЫВОВ (СВЕТЛЫЙ) --- */
         .reviews-section { background-color: var(--bg-light); color: var(--text-light-bg); padding: 100px 0; scroll-margin-top: 80px; }
@@ -222,14 +219,14 @@
 
         .review-form .form-group { margin-bottom: 20px; }
         .review-form label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; color: #555; }
-        .review-form input[type="text"], 
-        .review-form select, 
+        .review-form input[type="text"],
+        .review-form select,
         .review-form textarea {
             width: 100%; padding: 15px; border: 1px solid #ddd; background: #fafafa;
             font-family: 'Manrope', sans-serif; font-size: 1rem; transition: border-color 0.3s;
         }
-        .review-form input[type="text"]:focus, 
-        .review-form select:focus, 
+        .review-form input[type="text"]:focus,
+        .review-form select:focus,
         .review-form textarea:focus { outline: none; border-color: #000; background: #fff; }
 
         /* --- FAQ --- */
@@ -257,20 +254,16 @@
             nav { flex-direction: column; text-align: center; gap: 20px; }
             .logo { flex-direction: column; align-items: center; gap: 10px; }
             .status { flex-direction: column; gap: 8px; }
-            .status span { display: none; } 
-            
+            .status span { display: none; }
+
             .trust-item { font-size: 0.7rem; }
             .trust-item b { font-size: 1.1rem; }
             .trust-bar .container { grid-template-columns: repeat(2, 1fr); }
-            
+
             .calc-wrapper, .review-card { padding: 25px; }
-            .package-includes-grid { grid-template-columns: 1fr; gap: 20px; }
-            .price-value { font-size: 3rem; }
-            .fixed-service { font-size: 1rem; padding: 15px; }
-            .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
-            .btn-submit { width: 100%; padding: 20px; }
+            .price-row { flex-direction: column; gap: 4px; }
             .hero-cta { width: 100%; padding: 18px; }
-            
+
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
 
             /* Прячем стрелки на мобильном (оставляем свайп) */
@@ -299,103 +292,111 @@
                 Сургут
                 <div class="nav-links">
                     <a href="index.html" style="margin-right: 15px;">Установка</a>
-                    <a href="cleaning.html" class="active" style="color: var(--text-light-bg); margin-right: 15px;">Чистка</a>
-                    <a href="breezers.html" style="margin-right: 15px;">Бризеры</a>
+                    <a href="cleaning.html" style="margin-right: 15px;">Чистка</a>
+                    <a href="breezers.html" class="active" style="color: var(--text-light-bg); margin-right: 15px;">Бризеры</a>
                     <a href="#reviews">Отзывы</a>
                 </div>
             </div>
             <div class="status">
-                Работаем по всему Сургуту <span>•</span> 
+                Работаем по всему Сургуту <span>•</span>
                 <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}">+7 (982) 222-64-29</a>
             </div>
         </nav>
 
         <header class="hero container">
-            <h1>Дышите<br>Чистым воздухом</h1>
-            <p>Неприятный запах, капает вода или кондиционер плохо холодит? Проблема не во фреоне, а в накопившейся грязи. Вернем вашей сплит-системе заводскую свежесть и мощность.</p>
-            <a href="#calculator" class="hero-cta">Узнать стоимость чистки</a>
+            <h1>Установка<br>Бризеров</h1>
+            <p>Свежий воздух с улицы без открытых окон и сквозняков. Аккуратное сквозное бурение, качественная изоляция и монтаж под ключ — для любых моделей приточной вентиляции.</p>
+            <a href="#calculator" class="hero-cta">Посмотреть прайс-лист</a>
         </header>
 
         <div class="trust-bar">
             <div class="container">
-                <div class="trust-item"><b>3 месяца</b>Гарантия на работы</div>
-                <div class="trust-item"><b>Без луж</b>Сервис-пакет</div>
-                <div class="trust-item"><b>1.5 часа</b>Время чистки</div>
-                <div class="trust-item"><b>Без запаха</b>Мойка с химией</div>
+                <div class="trust-item"><b>1 год</b>Гарантия на работы</div>
+                <div class="trust-item"><b>0 ₽</b>Выезд и замер</div>
+                <div class="trust-item"><b>1 день</b>Монтаж «под ключ»</div>
+                <div class="trust-item"><b>Без пыли</b>Чистое бурение</div>
             </div>
         </div>
     </div>
 
-    <!-- ТЕМНЫЙ БЛОК (КАЛЬКУЛЯТОР) -->
+    <!-- ТЕМНЫЙ БЛОК (ЧТО ВХОДИТ + ПРАЙС) -->
     <section class="dark-section" id="calculator">
         <div class="container">
             <div class="calc-header">
-                <h2 class="serif-text">Стоимость обслуживания</h2>
+                <h2 class="serif-text">Установка приточной вентиляции</h2>
                 <p style="color: var(--muted-dark); margin-top: 10px;">Прозрачный прайс-лист без скрытых накруток</p>
             </div>
 
             <div class="calc-wrapper">
-                
-                <!-- 1. Внутренний блок (Теперь без выбора, фиксированный текст) -->
+
                 <div class="form-row">
-                    <label class="serif-text">1. Глубокая чистка внутреннего блока</label>
-                    <span class="form-desc">Базовая услуга для восстановления ледяного потока и чистого воздуха.</span>
-                    
-                    <div class="fixed-service">
-                        Чистка внутреннего блока + антибактериальная обработка — 4 000 ₽
-                    </div>
-                    <!-- Скрытое поле для работы калькулятора -->
-                    <input type="hidden" id="indoor" value="4000">
+                    <label class="serif-text">Что входит в установку</label>
+                    <span class="form-desc">Полный комплекс работ по монтажу бризера под ключ.</span>
                 </div>
 
-                <!-- Блок "Что входит" -->
                 <div class="package-includes">
-                    <h3 class="serif-text">В стоимость 4 000 ₽ уже включено:</h3>
+                    <h3 class="serif-text">В стоимость монтажа уже включено:</h3>
                     <ul class="includes-list">
-                        <li>Разборка и мойка пластиковых деталей корпуса.</li>
-                        <li>Очистка радиатора профессиональной химией.</li>
-                        <li>Мойка вентилятора (турбины) под высоким давлением.</li>
-                        <li>Промывка дренажной системы.</li>
-                        <li>Профессиональная антибактериальная обработка от грибка и запахов.</li>
+                        <li>Бурение 1-го сквозного технологического отверстия с подбором индивидуального диаметра в диапазоне от 100 до 180 мм — кирпичная кладка, бетонные блоки, мягкие минеральные составы, с учетом толщины стены не более 65 см и высоты до 1,7 м (от пола до отверстия).</li>
+                        <li>Тепловая и шумовая изоляция для воздуховода — монтируется из трубы на основе вспененного полиэтилена по необходимости.</li>
+                        <li>Монтаж решётки со стороны улицы.</li>
+                        <li>Установка прибора на нужной высоте.</li>
                     </ul>
-                    <div class="bonus-box">
-                        🎁 Бонус: Бесплатная замена батареек в вашем пульте ДУ!
-                    </div>
                 </div>
 
-                <!-- 2. Наружный блок -->
                 <div class="form-row">
-                    <label class="serif-text">2. Мойка наружного блока (с улицы)</label>
-                    <span class="form-desc">Производится только при безопасном доступе из окна или с балкона.</span>
-                    <select id="outdoor" class="custom-select" onchange="calculateCleaningPrice()">
-                        <option value="0">Наружный блок чистый / Не требуется (0 ₽)</option>
-                        <option value="5000">Требуется мойка наружного блока (+ 5 000 ₽)</option>
-                    </select>
+                    <label class="serif-text">Цены на установку приточной вентиляции</label>
+                    <span class="form-desc">Стоимость зависит от модели бризера.</span>
+
+                    <ul class="price-list">
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Xiaomi, AirNanny</span>
+                            <span class="price-row-value">от 15 000 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Royal Clima (Brezza)</span>
+                            <span class="price-row-value">от 15 800 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Тион 4S, 3S, О2, Lite и др.</span>
+                            <span class="price-row-value">от 19 800 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Ballu ONEAIR</span>
+                            <span class="price-row-value">от 16 900 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж AEROPAC</span>
+                            <span class="price-row-value">от 14 900 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Vakio Window, Lumi, KIV, Base</span>
+                            <span class="price-row-value">от 14 900 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Winzel, Ventini</span>
+                            <span class="price-row-value">от 15 800 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж КИВ 125</span>
+                            <span class="price-row-value">от 14 900 ₽</span>
+                        </li>
+                        <li class="price-row">
+                            <span class="price-row-name">Стандартный монтаж Funai</span>
+                            <span class="price-row-value">от 24 000 ₽</span>
+                        </li>
+                    </ul>
                 </div>
 
-                <!-- 3. Сложный доступ -->
-                <div class="form-row">
-                    <label class="serif-text">3. Сложный доступ (Расстекление)</label>
-                    <span class="form-desc">Если блок спрятан за глухим окном и требуется аккуратное снятие стеклопакета.</span>
-                    <select id="glass" class="custom-select" onchange="calculateCleaningPrice()">
-                        <option value="0">Доступ свободный (0 ₽)</option>
-                        <option value="1500">Требуется снятие стеклопакета (+ 1 500 ₽)</option>
-                    </select>
-                </div>
-
-                <!-- Итог -->
-                <div class="result-box">
-                    <div class="price-label">Итоговая стоимость:</div>
-                    <div class="price-value"><span id="total-price">4 000</span> ₽</div>
-                    
-                    <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                        <button class="btn-submit" onclick="submitCleaningOrder()">
+                <div class="actions-box">
+                    <div class="actions-box-inner">
+                        <button class="btn-submit" onclick="submitBreezerOrder()">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
                                 <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
                             </svg>
                             Записаться в Telegram
                         </button>
-                        
+
                         <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}" class="btn-call">
                             Согласовать по телефону
                             <span>+7 (982) 222-64-29</span>
@@ -414,7 +415,7 @@
                 <h2 class="serif-text">Репутация в деталях</h2>
                 <p>Что говорят клиенты о нашем подходе к работе</p>
             </div>
-            
+
             <div class="reviews-carousel-wrapper">
                 <!-- Кнопка Влево -->
                 <button class="carousel-nav-btn prev" onclick="scrollReviews(-1)">&#10094;</button>
@@ -424,39 +425,39 @@
                     <!-- Отзыв 1 -->
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
-                        <div class="review-text">«Вопросов к работе нет. Быстро отработали и уехали. Заплатил как и договаривались 4р.»</div>
+                        <div class="review-text">«Приехал мастер все замерил, договорились об установке на следующий день. С утра приехали стали устанавливать, работу выполнили качественно, осталась довольна, в следующем году планирую новую покупку и конечно же обращусь еще раз.»</div>
                         <div>
                             <div class="review-author-wrap">
-                                <span class="review-author">Роман Гриневский</span>
-                                <span class="review-date">20.07.2026</span>
+                                <span class="review-author">Мадина</span>
+                                <span class="review-date">14.07.2026</span>
                             </div>
-                            <div class="review-service">Чистка кондиционера</div>
+                            <div class="review-service">Установка сплит-системы</div>
                         </div>
                     </div>
 
                     <!-- Отзыв 2 -->
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
-                        <div class="review-text">«Отличный мастер. Приехал вовремя, аккуратно почистил»</div>
+                        <div class="review-text">«Все сделано качественно.»</div>
                         <div>
                             <div class="review-author-wrap">
-                                <span class="review-author">Ильфат</span>
-                                <span class="review-date">17.07.2026</span>
+                                <span class="review-author">Пользователь</span>
+                                <span class="review-date">10 июля</span>
                             </div>
-                            <div class="review-service">Чистка кондиционера</div>
+                            <div class="review-service">Монтаж с гарантией</div>
                         </div>
                     </div>
 
                     <!-- Отзыв 3 -->
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
-                        <div class="review-text">«Все супер спасибо за чистку»</div>
+                        <div class="review-text">«Всё, отлично! Парни молодцы, выполнили работу на 5+»</div>
                         <div>
                             <div class="review-author-wrap">
-                                <span class="review-author">Пользователь</span>
-                                <span class="review-date">16.07.2026</span>
+                                <span class="review-author">Александр</span>
+                                <span class="review-date">9 июля</span>
                             </div>
-                            <div class="review-service">Чистка кондиционера</div>
+                            <div class="review-service">Установка сплит-системы</div>
                         </div>
                     </div>
 
@@ -468,7 +469,7 @@
 
             <!-- Кнопка "Оставить отзыв" -->
             <div style="text-align: center; margin-top: 60px;">
-                <h3 class="serif-text" style="font-size: 1.5rem; margin-bottom: 15px;">Оставьте свой отзыв о чистке</h3>
+                <h3 class="serif-text" style="font-size: 1.5rem; margin-bottom: 15px;">Уже работали со мной?</h3>
                 <button onclick="openReviewModal()" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background-color: transparent; color: #111; padding: 15px 40px; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; border: 1px solid #111; cursor: pointer; transition: all 0.3s; font-family: 'Manrope', sans-serif;">
                     Написать отзыв
                 </button>
@@ -485,23 +486,23 @@
             </div>
 
             <details class="faq-item" open>
-                <summary>Будет ли грязь на обоях и лужи на полу?</summary>
-                <p>Ваши стены и пол останутся абсолютно чистыми. Бережная работа.</p>
+                <summary>Будет ли грязь на стенах и мебели после бурения?</summary>
+                <p>Работаем с использованием строительного пылесоса — стены, пол и мебель остаются чистыми.</p>
             </details>
 
             <details class="faq-item">
-                <summary>Кондиционер плохо холодит. Нужно заправлять фреон?</summary>
-                <p>В 90% случаев проблема кроется в забитом грязью барабане (вентиляторе) и радиаторе. Фреон нужно дозаправлять крайне редко. Начинать всегда стоит с глубокой чистки.</p>
+                <summary>Можно ли установить бризер в квартире с толстыми стенами?</summary>
+                <p>Да, стандартный монтаж рассчитан на стены толщиной до 65 см. При большей толщине стоимость бурения рассчитывается индивидуально после замера.</p>
             </details>
 
             <details class="faq-item">
-                <summary>Как часто нужно делать чистку?</summary>
-                <p>Для домашней сплит-системы рекомендуется проводить профессиональную мойку 1 раз в год, желательно перед началом летнего сезона.</p>
+                <summary>Будет ли слышен шум от улицы или самого прибора?</summary>
+                <p>В воздуховод устанавливается тепло- и шумоизоляция из вспененного полиэтилена, которая существенно снижает уровень шума с улицы.</p>
             </details>
 
             <details class="faq-item">
-                <summary>Сколько по времени занимает процедура?</summary>
-                <p>Глубокая чистка внутреннего блока занимает около 1 – 1.5 часов, в зависимости от степени загрязнения.</p>
+                <summary>Сколько занимает монтаж?</summary>
+                <p>Стандартная установка бризера занимает один день, включая бурение отверстия, изоляцию воздуховода и финальную настройку прибора.</p>
             </details>
         </div>
     </section>
@@ -509,8 +510,8 @@
     <!-- ФИНАЛЬНЫЙ CTA -->
     <section class="final-cta">
         <div class="container">
-            <h2 class="serif-text">Готовы вернуть морозную свежесть?</h2>
-            <p>Выберем удобное для вас время и дату обслуживания</p>
+            <h2 class="serif-text">Готовы дышать свежим воздухом?</h2>
+            <p>Выберем удобное для вас время и дату установки</p>
             <a href="#calculator" class="hero-cta">Посмотреть прайс-лист</a>
         </div>
     </section>
@@ -521,11 +522,10 @@
             <span class="modal-close" onclick="closeReviewModal()">&times;</span>
             <h3 class="serif-text" style="font-size: 1.8rem; margin-bottom: 20px;">Ваш отзыв</h3>
             <p style="font-size: 0.9rem; color: var(--muted-light); margin-bottom: 25px;">Поделитесь впечатлениями о работе. Ваш отзыв поможет другим клиентам сделать правильный выбор.</p>
-            
+
             <!-- Форма FormSubmit -->
-            <!-- ВНИМАНИЕ: Замени ТВОЯ_ПОЧТА@yandex.ru на свою реальную почту -->
             <form action="https://formsubmit.co/katyaagressor@yandex.com" method="POST" enctype="multipart/form-data" class="review-form">
-                <input type="hidden" name="_subject" value="Новый отзыв с сайта (Чистка)!">
+                <input type="hidden" name="_subject" value="Новый отзыв с сайта (Бризеры)!">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_next" value="https://климат86.рф//thanks.html">
 
@@ -562,8 +562,8 @@
     <footer>
         <div class="container">
             <div class="footer-logo">Сургут</div>
-            <p>Профессиональный монтаж и обслуживание кондиционеров в Сургуте.</p>
-            <p>Гарантия на выполненную работу — 3 месяца.</p>
+            <p>Профессиональный монтаж и обслуживание кондиционеров и бризеров в Сургуте.</p>
+            <p>Гарантия на выполненную работу — 1 год.</p>
             <p style="margin-top: 20px; font-size: 0.75rem; opacity: 0.7;">© 2026 Все права защищены.</p>
             <div style="text-align: center; margin-top: 20px;">
     <a href="policy.html" style="color: #64748b; font-size: 12px; text-decoration: underline;">Пользовательское соглашение и Политика конфиденциальности</a>
@@ -578,32 +578,9 @@
     </div>
 
     <script>
-        function calculateCleaningPrice() {
-            const indoorPrice = parseInt(document.getElementById('indoor').value);
-            const outdoorPrice = parseInt(document.getElementById('outdoor').value);
-            const glassPrice = parseInt(document.getElementById('glass').value);
-            
-            const total = indoorPrice + outdoorPrice + glassPrice;
-            
-            document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-        }
-
-        function submitCleaningOrder() {
-            const outdoorSelect = document.getElementById('outdoor');
-            const outdoorText = outdoorSelect.options[outdoorSelect.selectedIndex].text.split(' (')[0];
-            
-            const glassSelect = document.getElementById('glass');
-            const glassText = glassSelect.options[glassSelect.selectedIndex].text.split(' (')[0];
-            
-            const totalPrice = document.getElementById('total-price').innerText;
-
-            let message = "Здравствуйте! Хочу записаться на профессиональную чистку кондиционера.\n\n";
-            message += "📋 Мой расчет:\n";
-            message += `▪️ Внутренний блок: Глубокая чистка с химией\n`;
-            message += `▪️ Наружный блок: ${outdoorText}\n`;
-            message += `▪️ Доступ к окну: ${glassText}\n\n`;
-            message += `💰 Оценочная стоимость: ${totalPrice} ₽\n\n`;
-            message += "Подскажите, на какое ближайшее время есть свободные окна?";
+        function submitBreezerOrder() {
+            let message = "Здравствуйте! Хочу записаться на установку бризера.\n\n";
+            message += "Подскажите, пожалуйста, какая модель бризера рассматривается и на какое ближайшее время есть свободные окна для замера?";
 
             const encodedMessage = encodeURIComponent(message);
             const telegramNumber = "+79822226429";
@@ -611,7 +588,7 @@
             if (typeof ym === 'function') {
                 ym(110783414, 'reachGoal', 'order_submit');
             }
-            
+
             window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
         }
 
@@ -633,8 +610,6 @@
             const scrollAmount = 340;
             carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
         }
-
-        window.onload = calculateCleaningPrice;
     </script>
 
     <!-- Всплывающая плашка Cookie -->
