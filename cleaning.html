@@ -643,5 +643,24 @@
         window.onload = calculateCleaningPrice;
     </script>
 
+    <!-- Всплывающая плашка Cookie -->
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #1e293b; color: #fff; padding: 15px 20px; z-index: 9999; text-align: center; box-sizing: border-box; font-family: 'Manrope', sans-serif; font-size: 14px; box-shadow: 0 -4px 10px rgba(0,0,0,0.15);">
+    Мы используем файлы cookie и сервисы аналитики для улучшения работы сайта. Продолжая пользоваться сайтом, вы соглашаетесь с <a href="policy.html" style="color: #38bdf8; text-decoration: underline;">Политикой конфиденциальности</a>.
+    <button onclick="acceptCookies()" style="margin-left: 15px; background: #2563eb; color: #fff; border: none; padding: 8px 20px; border-radius: 6px; cursor: pointer; font-weight: 800; font-family: 'Manrope', sans-serif;">Понятно</button>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if (!localStorage.getItem("cookiesAccepted")) {
+            document.getElementById("cookie-banner").style.display = "block";
+        }
+    });
+
+    function acceptCookies() {
+        localStorage.setItem("cookiesAccepted", "true");
+        document.getElementById("cookie-banner").style.display = "none";
+    }
+</script>
+
 </body>
 </html>
