@@ -146,6 +146,37 @@
         .reviews-header h2 { font-size: 2.5rem; margin-bottom: 10px; letter-spacing: 1px; }
         .reviews-header p { color: var(--muted-light); font-size: 1rem; }
 
+        /* Обертка для стрелок и карусели */
+        .reviews-carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Кнопки навигации карусели */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            background-color: #fff;
+            border: 1px solid var(--border-light);
+            border-radius: 50%;
+            font-size: 1.2rem;
+            color: var(--text-light-bg);
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .carousel-nav-btn:hover { background-color: #f8fafc; border-color: #000; color: #000; }
+        .carousel-nav-btn.prev { left: -20px; }
+        .carousel-nav-btn.next { right: -20px; }
+
         /* Контейнер карусели */
         .reviews-carousel {
             display: flex;
@@ -155,6 +186,7 @@
             scroll-snap-type: x mandatory;
             -ms-overflow-style: none; /* Скрываем скроллбар IE/Edge */
             scrollbar-width: none; /* Скрываем скроллбар Firefox */
+            width: 100%;
         }
         .reviews-carousel::-webkit-scrollbar {
             display: none; /* Скрываем скроллбар Chrome/Safari */
@@ -237,6 +269,9 @@
             .hero-cta { width: 100%; padding: 18px; }
             
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
+
+            /* Прячем стрелки на мобильном (оставляем свайп) */
+            .carousel-nav-btn { display: none; }
 
             .mobile-sticky-cta {
                 display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 300;
@@ -409,141 +444,149 @@
                 <p>Что говорят клиенты о нашем подходе к работе</p>
             </div>
             
-            <div class="reviews-carousel">
+            <div class="reviews-carousel-wrapper">
+                <!-- Кнопка Влево -->
+                <button class="carousel-nav-btn prev" onclick="scrollReviews(-1)">&#10094;</button>
+
+                <div class="reviews-carousel" id="reviewsCarousel">
+                    
+                    <!-- Отзыв 1 (Новый) -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★<span style="opacity: 0.3;">★</span></div>
+                        <div class="review-text">«На замер немного опоздали, но ничего страшного, работали быстро и аккуратно. Использовали пылесос при бурении стены. Монтаж занял около 2,5 часов, блок висит ровно, трубы уложены аккуратно. Стоимость оказалась ровно такой, как договаривались в начале.»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Евгений</span>
+                                <span class="review-date">21.07.2026</span>
+                            </div>
+                            <div class="review-service">Установка сплит-системы</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 2 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Отличный мастер, с момента звонка до момента подключения кондиционера прошло 3 часа, все четко, о цене договорились 🤝 Требовалось подключить трассу между наружним и внутренним блоком на даче. Демократичная цена, удивился что не такая как у большинства, где порой выходит как стоимость самого кондиционера 😳 Оказанной услугой полностью довольны 👍 Спасибо большое, буду рекомендовать.»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Даниил</span>
+                                <span class="review-date">14.07.2026</span>
+                            </div>
+                            <div class="review-service">Подключение трассы на даче</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 3 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Приехал мастер все замерил, договорились об установке на следующий день. С утра приехали стали устанавливать, работу выполнили качественно, осталась довольна, в следующем году планирую новую покупку и конечно же обращусь еще раз. Особенно понравилось как они установили внешний блок, аккуратно ни чего не торчит😊»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Мадина</span>
+                                <span class="review-date">14.07.2026</span>
+                            </div>
+                            <div class="review-service">Установка сплит-системы</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 4 -->
+                    <div class="review-card">
+                        <img src="3.jpg" alt="Монтаж кондиционера" class="review-image">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Все сделано качественно.»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Пользователь</span>
+                                <span class="review-date">10 июля</span>
+                            </div>
+                            <div class="review-service">Монтаж с гарантией</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 5 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Отличный мастер и хороший человек. Приехал в назначенное время, сделал работу профессионально, всем довольны»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Evgeniy</span>
+                                <span class="review-date">10 июля</span>
+                            </div>
+                            <div class="review-service">Монтаж с гарантией</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 6 -->
+                    <div class="review-card">
+                        <img src="1.jpg" alt="Установка сплит-системы" class="review-image">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Всё, отлично! Парни молодцы, выполнили работу на 5+»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Александр</span>
+                                <span class="review-date">9 июля</span>
+                            </div>
+                            <div class="review-service">Установка сплит-системы</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 7 -->
+                    <div class="review-card">
+                        <img src="CFf0DxM9ODeg4dnNBuD92m9lVeW4pvpmC2xf36tkrXL319WSDUnaN4XpWPNM2qJqgWsKl180FN3zYkgtBuu08Eah.jpg_202607181545.jpeg" alt="Чистый монтаж" class="review-image">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Отличный мастер рекомендую. Приехал сделал все четко и быстро, профи своего дела!»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Николай</span>
+                                <span class="review-date">7 июля</span>
+                            </div>
+                            <div class="review-service">Установка сплит-системы</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 8 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Рекомендую данного мастера, приехал во время, сделал работу на отлично!»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Гриша</span>
+                                <span class="review-date">6 июля</span>
+                            </div>
+                            <div class="review-service">Установка сплит-системы</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 9 -->
+                    <div class="review-card">
+                        <img src="2.jpg" alt="Монтаж кондиционера" class="review-image">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Мастер отличный. проконсультровал, помог с выбором сплит системы, договорились о цене и времени. Работа была выполнена в полном объеме.»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Владислав</span>
+                                <span class="review-date">5 июля</span>
+                            </div>
+                            <div class="review-service">Помощь в выборе и установка</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 10 -->
+                    <div class="review-card">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Сплит-система установлена отлично, мастер приехал во время, установил быстро и аккуратно, объяснил как пользоваться, дал гарантию год на свою работу🙏»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Ангелина</span>
+                                <span class="review-date">5 июля</span>
+                            </div>
+                            <div class="review-service">Установка с гарантией</div>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- Отзыв 1 (Новый) -->
-                <div class="review-card">
-                    <div class="review-stars">★★★★<span style="opacity: 0.3;">★</span></div>
-                    <div class="review-text">«На замер немного опоздали, но ничего страшного, работали быстро и аккуратно. Использовали пылесос при бурении стены. Монтаж занял около 2,5 часов, блок висит ровно, трубы уложены аккуратно. Стоимость оказалась ровно такой, как договаривались в начале.»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Евгений</span>
-                            <span class="review-date">21.07.2026</span>
-                        </div>
-                        <div class="review-service">Установка сплит-системы</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 2 -->
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Отличный мастер, с момента звонка до момента подключения кондиционера прошло 3 часа, все четко, о цене договорились 🤝 Требовалось подключить трассу между наружним и внутренним блоком на даче. Демократичная цена, удивился что не такая как у большинства, где порой выходит как стоимость самого кондиционера 😳 Оказанной услугой полностью довольны 👍 Спасибо большое, буду рекомендовать.»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Даниил</span>
-                            <span class="review-date">14.07.2026</span>
-                        </div>
-                        <div class="review-service">Подключение трассы на даче</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 3 -->
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Приехал мастер все замерил, договорились об установке на следующий день. С утра приехали стали устанавливать, работу выполнили качественно, осталась довольна, в следующем году планирую новую покупку и конечно же обращусь еще раз. Особенно понравилось как они установили внешний блок, аккуратно ни чего не торчит😊»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Мадина</span>
-                            <span class="review-date">14.07.2026</span>
-                        </div>
-                        <div class="review-service">Установка сплит-системы</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 4 -->
-                <div class="review-card">
-                    <img src="3.jpg" alt="Монтаж кондиционера" class="review-image">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Все сделано качественно.»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Пользователь</span>
-                            <span class="review-date">10 июля</span>
-                        </div>
-                        <div class="review-service">Монтаж с гарантией</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 5 -->
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Отличный мастер и хороший человек. Приехал в назначенное время, сделал работу профессионально, всем довольны»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Evgeniy</span>
-                            <span class="review-date">10 июля</span>
-                        </div>
-                        <div class="review-service">Монтаж с гарантией</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 6 -->
-                <div class="review-card">
-                    <img src="1.jpg" alt="Установка сплит-системы" class="review-image">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Всё, отлично! Парни молодцы, выполнили работу на 5+»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Александр</span>
-                            <span class="review-date">9 июля</span>
-                        </div>
-                        <div class="review-service">Установка сплит-системы</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 7 -->
-                <div class="review-card">
-                    <img src="CFf0DxM9ODeg4dnNBuD92m9lVeW4pvpmC2xf36tkrXL319WSDUnaN4XpWPNM2qJqgWsKl180FN3zYkgtBuu08Eah.jpg_202607181545.jpeg" alt="Чистый монтаж" class="review-image">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Отличный мастер рекомендую. Приехал сделал все четко и быстро, профи своего дела!»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Николай</span>
-                            <span class="review-date">7 июля</span>
-                        </div>
-                        <div class="review-service">Установка сплит-системы</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 8 -->
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Рекомендую данного мастера, приехал во время, сделал работу на отлично!»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Гриша</span>
-                            <span class="review-date">6 июля</span>
-                        </div>
-                        <div class="review-service">Установка сплит-системы</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 9 -->
-                <div class="review-card">
-                    <img src="2.jpg" alt="Монтаж кондиционера" class="review-image">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Мастер отличный. проконсультровал, помог с выбором сплит системы, договорились о цене и времени. Работа была выполнена в полном объеме.»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Владислав</span>
-                            <span class="review-date">5 июля</span>
-                        </div>
-                        <div class="review-service">Помощь в выборе и установка</div>
-                    </div>
-                </div>
-
-                <!-- Отзыв 10 -->
-                <div class="review-card">
-                    <div class="review-stars">★★★★★</div>
-                    <div class="review-text">«Сплит-система установлена отлично, мастер приехал во время, установил быстро и аккуратно, объяснил как пользоваться, дал гарантию год на свою работу🙏»</div>
-                    <div>
-                        <div class="review-author-wrap">
-                            <span class="review-author">Ангелина</span>
-                            <span class="review-date">5 июля</span>
-                        </div>
-                        <div class="review-service">Установка с гарантией</div>
-                    </div>
-                </div>
+                <!-- Кнопка Вправо -->
+                <button class="carousel-nav-btn next" onclick="scrollReviews(1)">&#10095;</button>
             </div>
 
             <!-- Кнопка "Оставить отзыв" -->
@@ -741,6 +784,14 @@
         function closeReviewModal() {
             document.getElementById('reviewModal').style.display = 'none';
             document.body.style.overflow = 'auto';
+        }
+
+        // Функция для прокрутки карусели отзывов по клику на стрелки
+        function scrollReviews(direction) {
+            const carousel = document.getElementById('reviewsCarousel');
+            // Ширина карточки (320px) + отступ gap (20px) = 340px
+            const scrollAmount = 340; 
+            carousel.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
         }
 
         window.onload = calculatePrice;
