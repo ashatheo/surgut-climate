@@ -207,6 +207,24 @@
             border-radius: 4px;
             margin-bottom: 20px;
             border: 1px solid var(--border-light);
+            cursor: zoom-in;
+        }
+
+        /* --- ЛАЙТБОКС ДЛЯ ФОТО ОТЗЫВОВ --- */
+        .lightbox-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            z-index: 2000; align-items: center; justify-content: center; padding: 20px;
+            box-sizing: border-box;
+        }
+        .lightbox-overlay.open { display: flex; }
+        .lightbox-overlay img {
+            max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 6px;
+        }
+        .lightbox-close {
+            position: absolute; top: 16px; right: 20px; width: 44px; height: 44px;
+            border-radius: 50%; background: rgba(255,255,255,0.12); color: #fff;
+            font-size: 28px; line-height: 44px; text-align: center; cursor: pointer;
+            user-select: none;
         }
 
         .review-stars { color: var(--accent); font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 20px; }
@@ -453,7 +471,7 @@
 
                     <!-- Отзыв 1 (Новый) -->
                     <div class="review-card">
-                        <img src="images/27.07rewiev.jpeg" alt="Монтаж кондиционера" class="review-image">
+                        <img src="images/27.07rewiev.jpeg" alt="Монтаж кондиционера" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Отличные ребята, быстро договорились о цене и сложности монтажа, все было сделано красиво и аккуратно, за собой чистота и аккуратная работа) Обязательно рекомендую к сотрудничеству!»</div>
                         <div>
@@ -506,7 +524,7 @@
 
                     <!-- Отзыв 4 -->
                     <div class="review-card">
-                        <img src="images/review-mount-2.jpg" alt="Монтаж кондиционера" class="review-image">
+                        <img src="images/review-mount-2.jpg" alt="Монтаж кондиционера" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Все сделано качественно.»</div>
                         <div>
@@ -533,7 +551,7 @@
 
                     <!-- Отзыв 6 -->
                     <div class="review-card">
-                        <img src="images/review-split-install.jpg" alt="Установка сплит-системы" class="review-image">
+                        <img src="images/review-split-install.jpg" alt="Установка сплит-системы" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Всё, отлично! Парни молодцы, выполнили работу на 5+»</div>
                         <div>
@@ -547,7 +565,7 @@
 
                     <!-- Отзыв 7 -->
                     <div class="review-card">
-                        <img src="images/review-clean-mount.jpeg" alt="Чистый монтаж" class="review-image">
+                        <img src="images/review-clean-mount.jpeg" alt="Чистый монтаж" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Отличный мастер рекомендую. Приехал сделал все четко и быстро, профи своего дела!»</div>
                         <div>
@@ -574,7 +592,7 @@
 
                     <!-- Отзыв 9 -->
                     <div class="review-card">
-                        <img src="images/review-mount.jpg" alt="Монтаж кондиционера" class="review-image">
+                        <img src="images/review-mount.jpg" alt="Монтаж кондиционера" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Мастер отличный. проконсультровал, помог с выбором сплит системы, договорились о цене и времени. Работа была выполнена в полном объеме.»</div>
                         <div>
@@ -652,6 +670,12 @@
             <a href="#calculator" class="hero-cta">Вернуться к расчёту</a>
         </div>
     </section>
+
+    <!-- ЛАЙТБОКС ДЛЯ ФОТО ОТЗЫВОВ -->
+    <div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Фото отзыва" onclick="event.stopPropagation()">
+    </div>
 
     <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ОТЗЫВА -->
     <div id="reviewModal" class="modal-overlay">
@@ -800,6 +824,21 @@
             document.getElementById('reviewModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImage').src = src;
+            document.getElementById('lightboxOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
 
         // Функция для прокрутки карусели отзывов по клику на стрелки
         function scrollReviews(direction) {

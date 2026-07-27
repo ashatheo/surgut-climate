@@ -190,6 +190,34 @@
             scroll-snap-align: center; border-radius: 12px;
         }
         .review-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+
+        .review-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-light);
+            cursor: zoom-in;
+        }
+
+        /* --- ЛАЙТБОКС ДЛЯ ФОТО ОТЗЫВОВ --- */
+        .lightbox-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9);
+            z-index: 2000; align-items: center; justify-content: center; padding: 20px;
+            box-sizing: border-box;
+        }
+        .lightbox-overlay.open { display: flex; }
+        .lightbox-overlay img {
+            max-width: 100%; max-height: 90vh; object-fit: contain; border-radius: 6px;
+        }
+        .lightbox-close {
+            position: absolute; top: 16px; right: 20px; width: 44px; height: 44px;
+            border-radius: 50%; background: rgba(255,255,255,0.12); color: #fff;
+            font-size: 28px; line-height: 44px; text-align: center; cursor: pointer;
+            user-select: none;
+        }
+
         .review-stars { color: var(--accent); font-size: 1.2rem; letter-spacing: 4px; margin-bottom: 20px; }
         .review-text { font-size: 0.95rem; color: var(--muted-light); font-style: italic; margin-bottom: 30px; line-height: 1.8; flex-grow: 1; }
         .review-author-wrap { display: flex; justify-content: space-between; align-items: baseline; border-top: 1px solid var(--border-light); padding-top: 20px; }
@@ -425,7 +453,7 @@
 
                     <!-- Отзыв 1 (Новый) -->
                     <div class="review-card">
-                        <img src="images/26.06brez.jpg" alt="Установка бризера" class="review-image">
+                        <img src="images/26.06brez.jpg" alt="Установка бризера" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Обратились за помощью в установке бризера, работа сделана отлично и быстро, все аккуратно»</div>
                         <div>
@@ -439,7 +467,7 @@
 
                     <!-- Отзыв 2 (Новый) -->
                     <div class="review-card">
-                        <img src="images/24.06brez.jpg" alt="Установка бризера" class="review-image">
+                        <img src="images/24.06brez.jpg" alt="Установка бризера" class="review-image" onclick="openLightbox(this.src)">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Устанавливали бризер в квартире. Очень быстро договорились по срокам и стоимости, согласовали время. Пришли вовремя, все работы выполнили быстрее, чем ожидалось.»</div>
                         <div>
@@ -545,6 +573,12 @@
         </div>
     </section>
 
+    <!-- ЛАЙТБОКС ДЛЯ ФОТО ОТЗЫВОВ -->
+    <div id="lightboxOverlay" class="lightbox-overlay" onclick="closeLightbox()">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" src="" alt="Фото отзыва" onclick="event.stopPropagation()">
+    </div>
+
     <!-- ВСПЛЫВАЮЩЕЕ ОКНО ДЛЯ ОТЗЫВА -->
     <div id="reviewModal" class="modal-overlay">
         <div class="modal-content">
@@ -631,6 +665,21 @@
             document.getElementById('reviewModal').style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+
+        function openLightbox(src) {
+            document.getElementById('lightboxImage').src = src;
+            document.getElementById('lightboxOverlay').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightboxOverlay').classList.remove('open');
+            document.body.style.overflow = 'auto';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeLightbox();
+        });
 
         // Функция для прокрутки карусели отзывов по клику на стрелки
         function scrollReviews(direction) {
