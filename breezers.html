@@ -121,11 +121,12 @@
         .btn-submit:hover { background-color: #333; }
 
         .btn-call {
-            text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
-            border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s;
+            text-decoration: none; color: #fff; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;
+            border: 1px solid rgba(255,255,255,0.4); padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s;
             display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
         }
-        .btn-call span { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700; }
+        .btn-call:hover { border-color: #fff; }
+        .btn-call span { font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700; color: var(--accent-dark); }
 
         .actions-box { margin-top: 50px; text-align: center; }
         .actions-box-inner { display: flex; flex-direction: column; gap: 15px; align-items: center; }
@@ -422,7 +423,35 @@
 
                 <div class="reviews-carousel" id="reviewsCarousel">
 
-                    <!-- Отзыв 1 -->
+                    <!-- Отзыв 1 (Новый) -->
+                    <div class="review-card">
+                        <img src="images/26.06brez.jpg" alt="Установка бризера" class="review-image">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Обратились за помощью в установке бризера, работа сделана отлично и быстро, все аккуратно»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Татьяна</span>
+                                <span class="review-date">26.07.2026</span>
+                            </div>
+                            <div class="review-service">Установка бризера</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 2 (Новый) -->
+                    <div class="review-card">
+                        <img src="images/24.06brez.jpg" alt="Установка бризера" class="review-image">
+                        <div class="review-stars">★★★★★</div>
+                        <div class="review-text">«Устанавливали бризер в квартире. Очень быстро договорились по срокам и стоимости, согласовали время. Пришли вовремя, все работы выполнили быстрее, чем ожидалось.»</div>
+                        <div>
+                            <div class="review-author-wrap">
+                                <span class="review-author">Maxim</span>
+                                <span class="review-date">24.07.2026</span>
+                            </div>
+                            <div class="review-service">Установка бризера</div>
+                        </div>
+                    </div>
+
+                    <!-- Отзыв 3 -->
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Приехал мастер все замерил, договорились об установке на следующий день. С утра приехали стали устанавливать, работу выполнили качественно, осталась довольна, в следующем году планирую новую покупку и конечно же обращусь еще раз.»</div>
@@ -435,7 +464,7 @@
                         </div>
                     </div>
 
-                    <!-- Отзыв 2 -->
+                    <!-- Отзыв 4 -->
                     <div class="review-card">
                         <div class="review-stars">★★★★★</div>
                         <div class="review-text">«Все сделано качественно.»</div>
