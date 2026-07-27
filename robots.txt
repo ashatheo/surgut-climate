@@ -1,0 +1,43 @@
+# Обычные поисковики
+User-agent: *
+Allow: /
+Disallow: /thanks.html
+
+# AI-краулеры и ассистенты — разрешаем явно, чтобы сайт был виден
+# ChatGPT / OpenAI
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Anthropic (Claude)
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /
+
+# Google AI (обучение моделей / AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# Common Crawl (используется многими AI-исследователями)
+User-agent: CCBot
+Allow: /
+
+# Apple AI
+User-agent: Applebot-Extended
+Allow: /
+
+Sitemap: https://климат86.рф/sitemap.xml
