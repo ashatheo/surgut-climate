@@ -117,6 +117,24 @@
         .result-box { margin-top: 50px; background: #ffffff; color: #000000; padding: 50px 40px; text-align: center; }
         .price-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
         .price-value { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 15px 0 30px 0; line-height: 1; }
+
+        .lead-form-section { background: var(--bg-dark-panel); border: 1px solid var(--border-dark); padding: 50px 40px; margin-top: 20px; scroll-margin-top: 80px; }
+        .lead-form-section h3 { color: var(--text-dark-bg); font-size: 1.4rem; margin-bottom: 10px; text-align: center; }
+        .lead-form-section .form-desc { text-align: center; margin: 0 auto 30px auto; max-width: 480px; }
+        .lead-form { max-width: 420px; margin: 0 auto; }
+        .lead-form .form-group { margin-bottom: 18px; }
+        .lead-form input[type="text"], .lead-form input[type="tel"] {
+            width: 100%; padding: 16px; background: #1a1a1a; border: 1px solid #444; color: #fff;
+            font-family: 'Manrope', sans-serif; font-size: 1rem; transition: border-color 0.3s;
+        }
+        .lead-form input:focus { outline: none; border-color: var(--accent-dark); background: #222; }
+        .lead-form-consent { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+        .lead-form-consent input { margin-top: 4px; }
+        .lead-form-consent label { font-size: 0.8rem; color: var(--muted-dark); }
+        .lead-form-consent a { color: var(--text-dark-bg); }
+        .lead-form-status { margin-top: 15px; text-align: center; font-size: 0.9rem; }
+        .lead-form-status.success { color: #4ade80; }
+        .lead-form-status.error { color: #f87171; }
         
         .btn-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
@@ -270,7 +288,7 @@
             .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
             .btn-submit { width: 100%; padding: 20px; }
             .hero-cta { width: 100%; padding: 18px; }
-            
+
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); }
 
             /* Прячем стрелки на мобильном (оставляем свайп) */
@@ -389,18 +407,30 @@
                     <div class="price-value"><span id="total-price">4 000</span> ₽</div>
                     
                     <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                        <button class="btn-submit" onclick="submitCleaningOrder()">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
-                            </svg>
-                            Записаться в Telegram
-                        </button>
-                        
                         <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}" class="btn-call">
                             Согласовать по телефону
                             <span>+7 (982) 222-64-29</span>
                         </a>
                     </div>
+                </div>
+
+                <div class="lead-form-section" id="lead-form">
+                    <h3 class="serif-text">Оставьте заявку — перезвоним сами</h3>
+                    <span class="form-desc">Не хотите звонить сами? Укажите имя и телефон — перезвоним в течение 15 минут.</span>
+                    <form class="lead-form" onsubmit="return submitLeadForm(event, 'Чистка')">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\(\)\-]{10,20}">
+                        </div>
+                        <div class="lead-form-consent">
+                            <input type="checkbox" id="consent-cleaning" required>
+                            <label for="consent-cleaning">Согласен(а) на обработку персональных данных согласно <a href="policy.html" target="_blank">Политике конфиденциальности</a></label>
+                        </div>
+                        <button type="submit" class="btn-submit" style="width: 100%;">Оставить заявку</button>
+                        <div class="lead-form-status" id="lead-form-status"></div>
+                    </form>
                 </div>
 
             </div>
@@ -588,31 +618,49 @@
             document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
 
-        function submitCleaningOrder() {
-            const outdoorSelect = document.getElementById('outdoor');
-            const outdoorText = outdoorSelect.options[outdoorSelect.selectedIndex].text.split(' (')[0];
-            
-            const glassSelect = document.getElementById('glass');
-            const glassText = glassSelect.options[glassSelect.selectedIndex].text.split(' (')[0];
-            
-            const totalPrice = document.getElementById('total-price').innerText;
+        const LEAD_WORKER_URL = 'https://surgut-climate.deadgormurder.workers.dev';
 
-            let message = "Здравствуйте! Хочу записаться на профессиональную чистку кондиционера.\n\n";
-            message += "📋 Мой расчет:\n";
-            message += `▪️ Внутренний блок: Глубокая чистка с химией\n`;
-            message += `▪️ Наружный блок: ${outdoorText}\n`;
-            message += `▪️ Доступ к окну: ${glassText}\n\n`;
-            message += `💰 Оценочная стоимость: ${totalPrice} ₽\n\n`;
-            message += "Подскажите, на какое ближайшее время есть свободные окна?";
+        function submitLeadForm(event, source) {
+            event.preventDefault();
+            const form = event.target;
+            const statusEl = document.getElementById('lead-form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const name = form.name.value.trim();
+            const phone = form.phone.value.trim();
 
-            const encodedMessage = encodeURIComponent(message);
-            const telegramNumber = "+79822226429";
+            statusEl.className = 'lead-form-status';
+            statusEl.textContent = '';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляем...';
 
-            if (typeof ym === 'function') {
-                ym(110783414, 'reachGoal', 'order_submit');
-            }
-            
-            window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
+            fetch(LEAD_WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone, source, details: document.getElementById('total-price') ? `Смета: ${document.getElementById('total-price').innerText} ₽` : '' }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        statusEl.classList.add('success');
+                        statusEl.textContent = 'Спасибо! Перезвоним в течение 15 минут.';
+                        form.reset();
+                        if (typeof ym === 'function') {
+                            ym(110783414, 'reachGoal', 'lead_form_submit');
+                        }
+                    } else {
+                        throw new Error(data.error || 'unknown');
+                    }
+                })
+                .catch(() => {
+                    statusEl.classList.add('error');
+                    statusEl.innerHTML = 'Не получилось отправить. Позвоните нам: <a href="tel:+79822226429" style="color: inherit;">+7 (982) 222-64-29</a>';
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Оставить заявку';
+                });
+
+            return false;
         }
 
         // Функции модального окна отзывов

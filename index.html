@@ -113,17 +113,27 @@
         .custom-select:focus { outline: none; border-color: var(--accent-dark); background-color: #222; }
         .custom-select option { background: var(--bg-dark-panel); color: var(--text-dark-bg); }
 
-        .counter-group { display: flex; align-items: center; gap: 20px; }
-        .counter-btn {
-            width: 50px; height: 50px; border: 1px solid var(--border-dark); background: #1a1a1a; color: var(--text-dark-bg);
-            font-size: 1.5rem; font-family: 'Manrope', sans-serif; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.3s;
-        }
-        .counter-btn:hover { border-color: var(--accent-dark); background: #2a2a2a; }
-        .counter-value { font-size: 1.2rem; font-weight: 600; min-width: 40px; text-align: center; }
-
         .result-box { margin-top: 50px; background: #ffffff; color: #000000; padding: 50px 40px; text-align: center; }
         .price-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
         .price-value { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 15px 0 30px 0; line-height: 1; }
+
+        .lead-form-section { background: var(--bg-dark-panel); border: 1px solid var(--border-dark); padding: 50px 40px; margin-top: 20px; scroll-margin-top: 80px; }
+        .lead-form-section h3 { color: var(--text-dark-bg); font-size: 1.4rem; margin-bottom: 10px; text-align: center; }
+        .lead-form-section .form-desc { text-align: center; margin: 0 auto 30px auto; max-width: 480px; }
+        .lead-form { max-width: 420px; margin: 0 auto; }
+        .lead-form .form-group { margin-bottom: 18px; }
+        .lead-form input[type="text"], .lead-form input[type="tel"] {
+            width: 100%; padding: 16px; background: #1a1a1a; border: 1px solid #444; color: #fff;
+            font-family: 'Manrope', sans-serif; font-size: 1rem; transition: border-color 0.3s;
+        }
+        .lead-form input:focus { outline: none; border-color: var(--accent-dark); background: #222; }
+        .lead-form-consent { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; }
+        .lead-form-consent input { margin-top: 4px; }
+        .lead-form-consent label { font-size: 0.8rem; color: var(--muted-dark); }
+        .lead-form-consent a { color: var(--text-dark-bg); }
+        .lead-form-status { margin-top: 15px; text-align: center; font-size: 0.9rem; }
+        .lead-form-status.success { color: #4ade80; }
+        .lead-form-status.error { color: #f87171; }
         
         .btn-submit {
             display: inline-flex; align-items: center; justify-content: center; gap: 12px;
@@ -285,7 +295,7 @@
             .custom-select { font-size: 1rem; padding: 15px 40px 15px 15px; }
             .btn-submit { width: 100%; padding: 20px; }
             .hero-cta { width: 100%; padding: 18px; }
-            
+
             body { padding-bottom: calc(70px + env(safe-area-inset-bottom)); } 
 
             /* Прячем стрелки на мобильном (оставляем свайп) */
@@ -346,12 +356,12 @@
             <div class="calc-wrapper">
                 
                 <div class="form-row">
-                    <label class="serif-text">1. Базовый пакет «Под ключ»</label>
+                    <label class="serif-text">Базовый пакет «Под ключ»</label>
                     <span class="form-desc">Выберите пакет в зависимости от мощности вашей системы.</span>
                     <select id="package" class="custom-select" onchange="calculatePrice()">
-                        <option value="24600">Сплит-система 7-9 kBTU (до 25 м²) — 24 600 ₽</option>
-                        <option value="30600">Сплит-система 12-18 kBTU (до 50 м²) — 30 600 ₽</option>
-                        <option value="40200">Сплит-система 24-36 kBTU (свыше 50 м²) — 40 200 ₽</option>
+                        <option value="20600">Сплит-система 7-9 kBTU (до 25 м²)</option>
+                        <option value="26600">Сплит-система 12-18 kBTU (до 50 м²)</option>
+                        <option value="36600">Сплит-система 24-36 kBTU (свыше 50 м²)</option>
                     </select>
                 </div>
 
@@ -373,7 +383,6 @@
                                 <li><b>Материалы (уже включены в стоимость):</b></li>
                                 <li>Фреоновая магистраль до 3-х метров.</li>
                                 <li>Кронштейны для наружного блока (2 шт) и крепеж.</li>
-                                <li>Кабель-канал 60*60 0,5 метра (для трассы).</li>
                             </ul>
                         </div>
                     </div>
@@ -383,72 +392,35 @@
                     </div>
                 </div>
 
-                <div class="form-row">
-                    <label class="serif-text">2. Дополнительные метры трассы</label>
-                    <span class="form-desc">Укажите, сколько <b>дополнительных</b> метров потребуется свыше базовых 3-х метров (2 400 ₽ / метр).</span>
-                    <div class="counter-group">
-                        <button class="counter-btn" onclick="updateCounter('extraRoute', -1)">-</button>
-                        <span id="extraRoute-val" class="counter-value">0</span>
-                        <button class="counter-btn" onclick="updateCounter('extraRoute', 1)">+</button>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <label class="serif-text">3. Декоративный кабель-канал для трассы</label>
-                    <span class="form-desc">В метрах. Оставьте 0, если монтаж скрытый (в штробе). (2 400 ₽ / метр).</span>
-                    <div class="counter-group">
-                        <button class="counter-btn" onclick="updateCounter('channel', -1)">-</button>
-                        <span id="channel-val" class="counter-value">0</span>
-                        <button class="counter-btn" onclick="updateCounter('channel', 1)">+</button>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <label class="serif-text">4. Дополнительные отверстия</label>
-                    <span class="form-desc">Если монтаж производится через балкон или лоджию. Одно отверстие уже включено в пакет (6 000 ₽ / шт).</span>
-                    <div class="counter-group">
-                        <button class="counter-btn" onclick="updateCounter('extraHoles', -1)">-</button>
-                        <span id="extraHoles-val" class="counter-value">0</span>
-                        <button class="counter-btn" onclick="updateCounter('extraHoles', 1)">+</button>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <label class="serif-text">5. Этаж проведения работ</label>
-                    <span class="form-desc">Высотные работы: +2 000 ₽ за каждые 5 этажей свыше пятого.</span>
-                    <div class="counter-group">
-                        <button class="counter-btn" onclick="updateCounter('floor', -1)">-</button>
-                        <span id="floor-val" class="counter-value">1</span>
-                        <button class="counter-btn" onclick="updateCounter('floor', 1)">+</button>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <label class="serif-text">6. Подготовка помещения</label>
-                    <span class="form-desc">Укрытие мебели и элементов интерьера защитной пленкой.</span>
-                    <select id="preparation" class="custom-select" onchange="calculatePrice()">
-                        <option value="0">Сделаю самостоятельно (Бесплатно)</option>
-                        <option value="1200">Укрытие мебели пленкой (+1 200 ₽)</option>
-                    </select>
-                </div>
-
                 <div class="result-box">
-                    <div class="price-label">Итоговая смета:</div>
-                    <div class="price-value"><span id="total-price">24 600</span> ₽</div>
-                    
+                    <div class="price-label">Стоимость под ключ:</div>
+                    <div class="price-value">от <span id="total-price">20 600</span> ₽</div>
+
                     <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
-                        <button class="btn-submit" onclick="submitOrder()" style="width: 100%; max-width: 400px;">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
-                                <path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
-                            </svg>
-                            Отправить заявку в Telegram
-                        </button>
-                        
                         <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}" style="text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
                             Согласовать по телефону
                             <span style="font-size: 1.1rem; font-family: 'Playfair Display', serif; font-weight: 700;">+7 (982) 222-64-29</span>
                         </a>
                     </div>
+                </div>
+
+                <div class="lead-form-section" id="lead-form">
+                    <h3 class="serif-text">Оставьте заявку — перезвоним сами</h3>
+                    <span class="form-desc">Не хотите звонить сами? Укажите имя и телефон — перезвоним в течение 15 минут.</span>
+                    <form class="lead-form" onsubmit="return submitLeadForm(event, 'Установка')">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Ваше имя" required maxlength="100">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required pattern="[\d\s\+\(\)\-]{10,20}">
+                        </div>
+                        <div class="lead-form-consent">
+                            <input type="checkbox" id="consent-install" required>
+                            <label for="consent-install">Согласен(а) на обработку персональных данных согласно <a href="policy.html" target="_blank">Политике конфиденциальности</a></label>
+                        </div>
+                        <button type="submit" class="btn-submit" style="width: 100%;">Оставить заявку</button>
+                        <div class="lead-form-status" id="lead-form-status"></div>
+                    </form>
                 </div>
 
             </div>
@@ -739,80 +711,54 @@
     </div>
 
     <script>
-        let state = {
-            extraRoute: 0,
-            channel: 0,
-            extraHoles: 0,
-            floor: 1
-        };
-
-        const EXTRA_ROUTE_PRICE = 2400; 
-        const CHANNEL_PRICE = 2400;     
-        const EXTRA_HOLE_PRICE = 6000;
-
-        function updateCounter(type, change) {
-            if (type === 'extraRoute') {
-                state.extraRoute = Math.max(0, state.extraRoute + change);
-                document.getElementById('extraRoute-val').innerText = state.extraRoute;
-            } else if (type === 'channel') {
-                state.channel = Math.max(0, state.channel + change);
-                document.getElementById('channel-val').innerText = state.channel;
-            } else if (type === 'extraHoles') {
-                state.extraHoles = Math.max(0, state.extraHoles + change);
-                document.getElementById('extraHoles-val').innerText = state.extraHoles;
-            } else if (type === 'floor') {
-                state.floor = Math.max(1, state.floor + change);
-                document.getElementById('floor-val').innerText = state.floor;
-            }
-            calculatePrice();
-        }
-
         function calculatePrice() {
             const packagePrice = parseInt(document.getElementById('package').value);
-            const prepPrice = parseInt(document.getElementById('preparation').value);
-            
-            const routeTotal = state.extraRoute * EXTRA_ROUTE_PRICE;
-            const channelTotal = state.channel * CHANNEL_PRICE;
-            const holesTotal = state.extraHoles * EXTRA_HOLE_PRICE;
-            
-            let floorExtra = 0;
-            if (state.floor > 5) {
-                floorExtra = Math.floor((state.floor - 1) / 5) * 2000;
-            }
-            
-            const total = packagePrice + routeTotal + channelTotal + holesTotal + floorExtra + prepPrice;
-            
-            document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            document.getElementById('total-price').innerText = packagePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
 
-        function submitOrder() {
-            const packageSelect = document.getElementById('package');
-            const packageText = packageSelect.options[packageSelect.selectedIndex].text.split(' — ')[0];
-            
-            const prepSelect = document.getElementById('preparation');
-            const prepText = prepSelect.options[prepSelect.selectedIndex].text.split(' (+')[0];
-            
-            const totalPrice = document.getElementById('total-price').innerText;
+        const LEAD_WORKER_URL = 'https://surgut-climate.deadgormurder.workers.dev';
 
-            let message = "Здравствуйте! Хочу оставить заявку на установку кондиционера.\n\n";
-            message += "📋 Мой расчет:\n";
-            message += `▪️ Пакет: ${packageText}\n`;
-            message += `▪️ Доп. трасса: ${state.extraRoute} м\n`;
-            message += `▪️ Кабель-канал: ${state.channel} м\n`;
-            message += `▪️ Доп. отверстия: ${state.extraHoles} шт\n`;
-            message += `▪️ Этаж: ${state.floor}\n`;
-            message += `▪️ Подготовка: ${prepText}\n\n`;
-            message += `💰 Ориентировочная смета: ${totalPrice} ₽\n\n`;
-            message += "Подскажите, когда возможен выезд инженера на бесплатный замер?";
+        function submitLeadForm(event, source) {
+            event.preventDefault();
+            const form = event.target;
+            const statusEl = document.getElementById('lead-form-status');
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const name = form.name.value.trim();
+            const phone = form.phone.value.trim();
 
-            const encodedMessage = encodeURIComponent(message);
-            const telegramNumber = "+79822226429";
+            statusEl.className = 'lead-form-status';
+            statusEl.textContent = '';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляем...';
 
-            if (typeof ym === 'function') {
-                ym(110783414, 'reachGoal', 'order_submit');
-            }
-            
-            window.open(`https://t.me/${telegramNumber}?text=${encodedMessage}`, '_blank');
+            fetch(LEAD_WORKER_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, phone, source, details: document.getElementById('total-price') ? `Пакет от: ${document.getElementById('total-price').innerText} ₽` : '' }),
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.ok) {
+                        statusEl.classList.add('success');
+                        statusEl.textContent = 'Спасибо! Перезвоним в течение 15 минут.';
+                        form.reset();
+                        if (typeof ym === 'function') {
+                            ym(110783414, 'reachGoal', 'lead_form_submit');
+                        }
+                    } else {
+                        throw new Error(data.error || 'unknown');
+                    }
+                })
+                .catch(() => {
+                    statusEl.classList.add('error');
+                    statusEl.innerHTML = 'Не получилось отправить. Позвоните нам: <a href="tel:+79822226429" style="color: inherit;">+7 (982) 222-64-29</a>';
+                })
+                .finally(() => {
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Оставить заявку';
+                });
+
+            return false;
         }
 
         function openReviewModal() {

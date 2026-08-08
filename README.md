@@ -14,7 +14,9 @@ policy.html     Пользовательское соглашение и пол�
 thanks.html     Страница благодарности после отправки заявки
 sitemap.xml     Карта сайта для поисковых систем
 CNAME           Кастомный домен для GitHub Pages
-images/         Фотографии для блока отзывов
+images/         Фотографии для блока отзывов и hero-блоков
+worker/         Cloudflare Worker, принимающий форму заявки и
+                пересылающий её в Telegram (см. worker/README.md)
 yandex_ddd71e6c05171e46.html
                 Файл подтверждения прав на сайт в Яндекс.Вебмастере
 ```
@@ -26,9 +28,14 @@ yandex_ddd71e6c05171e46.html
 
 - Шрифты: Google Fonts (Playfair Display, Manrope)
 - Аналитика: Яндекс.Метрика (счётчик `110783414`)
-- Приём заявок: [FormSubmit](https://formsubmit.co/) — формы на
-  `index.html` и `cleaning.html` отправляют письма на почту напрямую,
-  без бэкенда
+- Приём отзывов: [FormSubmit](https://formsubmit.co/) — формы отзывов
+  на `index.html`, `cleaning.html` и `breezers.html` отправляют письма
+  на почту напрямую, без бэкенда
+- Приём заявок на услуги: форма «Оставить заявку» на всех трёх
+  страницах услуг отправляет данные в Cloudflare Worker
+  (`worker/index.js`), который пересылает их в Telegram владельцу для
+  оперативного обратного звонка. Подробности деплоя — в
+  `worker/README.md`
 
 ## Деплой
 
