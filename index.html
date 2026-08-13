@@ -113,6 +113,14 @@
         .custom-select:focus { outline: none; border-color: var(--accent-dark); background-color: #222; }
         .custom-select option { background: var(--bg-dark-panel); color: var(--text-dark-bg); }
 
+        .counter-group { display: flex; align-items: center; gap: 20px; }
+        .counter-btn {
+            width: 50px; height: 50px; border: 1px solid var(--border-dark); background: #1a1a1a; color: var(--text-dark-bg);
+            font-size: 1.5rem; font-family: 'Manrope', sans-serif; cursor: pointer; display: flex; justify-content: center; align-items: center; transition: all 0.3s;
+        }
+        .counter-btn:hover { border-color: var(--accent-dark); background: #2a2a2a; }
+        .counter-value { font-size: 1.2rem; font-weight: 600; min-width: 40px; text-align: center; }
+
         .result-box { margin-top: 50px; background: #ffffff; color: #000000; padding: 50px 40px; text-align: center; }
         .price-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: #555; }
         .price-value { font-family: 'Playfair Display', serif; font-size: 4rem; margin: 15px 0 30px 0; line-height: 1; }
@@ -356,12 +364,12 @@
             <div class="calc-wrapper">
                 
                 <div class="form-row">
-                    <label class="serif-text">Базовый пакет «Под ключ»</label>
+                    <label class="serif-text">1. Базовый пакет «Под ключ»</label>
                     <span class="form-desc">Выберите пакет в зависимости от мощности вашей системы.</span>
                     <select id="package" class="custom-select" onchange="calculatePrice()">
-                        <option value="18600">Сплит-система 7-9 kBTU (до 25 м²)</option>
-                        <option value="24600">Сплит-система 12-18 kBTU (до 50 м²)</option>
-                        <option value="32600">Сплит-система 24-36 kBTU (свыше 50 м²)</option>
+                        <option value="24600">Сплит-система 7-9 kBTU (до 25 м²) — 24 600 ₽</option>
+                        <option value="30600">Сплит-система 12-18 kBTU (до 50 м²) — 30 600 ₽</option>
+                        <option value="40200">Сплит-система 24-36 kBTU (свыше 50 м²) — 40 200 ₽</option>
                     </select>
                 </div>
 
@@ -383,6 +391,7 @@
                                 <li><b>Материалы (уже включены в стоимость):</b></li>
                                 <li>Фреоновая магистраль до 3-х метров.</li>
                                 <li>Кронштейны для наружного блока (2 шт) и крепеж.</li>
+                                <li>Кабель-канал 60*60 0,5 метра (для трассы).</li>
                             </ul>
                         </div>
                     </div>
@@ -392,9 +401,58 @@
                     </div>
                 </div>
 
+                <div class="form-row">
+                    <label class="serif-text">2. Дополнительные метры трассы</label>
+                    <span class="form-desc">Укажите, сколько <b>дополнительных</b> метров потребуется свыше базовых 3-х метров (2 400 ₽ / метр).</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('extraRoute', -1)">-</button>
+                        <span id="extraRoute-val" class="counter-value">0</span>
+                        <button class="counter-btn" onclick="updateCounter('extraRoute', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="serif-text">3. Декоративный кабель-канал для трассы</label>
+                    <span class="form-desc">В метрах. Оставьте 0, если монтаж скрытый (в штробе). (2 400 ₽ / метр).</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('channel', -1)">-</button>
+                        <span id="channel-val" class="counter-value">0</span>
+                        <button class="counter-btn" onclick="updateCounter('channel', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="serif-text">4. Дополнительные отверстия</label>
+                    <span class="form-desc">Если монтаж производится через балкон или лоджию. Одно отверстие уже включено в пакет (6 000 ₽ / шт).</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('extraHoles', -1)">-</button>
+                        <span id="extraHoles-val" class="counter-value">0</span>
+                        <button class="counter-btn" onclick="updateCounter('extraHoles', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="serif-text">5. Этаж проведения работ</label>
+                    <span class="form-desc">Высотные работы: +2 000 ₽ за каждые 5 этажей свыше пятого.</span>
+                    <div class="counter-group">
+                        <button class="counter-btn" onclick="updateCounter('floor', -1)">-</button>
+                        <span id="floor-val" class="counter-value">1</span>
+                        <button class="counter-btn" onclick="updateCounter('floor', 1)">+</button>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <label class="serif-text">6. Подготовка помещения</label>
+                    <span class="form-desc">Укрытие мебели и элементов интерьера защитной пленкой.</span>
+                    <select id="preparation" class="custom-select" onchange="calculatePrice()">
+                        <option value="0">Сделаю самостоятельно (Бесплатно)</option>
+                        <option value="1200">Укрытие мебели пленкой (+1 200 ₽)</option>
+                    </select>
+                </div>
+
                 <div class="result-box">
-                    <div class="price-label">Стоимость под ключ:</div>
-                    <div class="price-value">от <span id="total-price">20 600</span> ₽</div>
+                    <div class="price-label">Итоговая смета:</div>
+                    <div class="price-value"><span id="total-price">24 600</span> ₽</div>
 
                     <div style="display: flex; flex-direction: column; gap: 15px; align-items: center;">
                         <a href="tel:+79822226429" onclick="if(typeof ym==='function'){ym(110783414,'reachGoal','call_click')}" style="text-decoration: none; color: #000; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; border: 1px solid #000; padding: 15px 30px; width: 100%; max-width: 400px; text-align: center; transition: all 0.3s; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;">
@@ -711,9 +769,50 @@
     </div>
 
     <script>
+        let state = {
+            extraRoute: 0,
+            channel: 0,
+            extraHoles: 0,
+            floor: 1
+        };
+
+        const EXTRA_ROUTE_PRICE = 2400;
+        const CHANNEL_PRICE = 2400;
+        const EXTRA_HOLE_PRICE = 6000;
+
+        function updateCounter(type, change) {
+            if (type === 'extraRoute') {
+                state.extraRoute = Math.max(0, state.extraRoute + change);
+                document.getElementById('extraRoute-val').innerText = state.extraRoute;
+            } else if (type === 'channel') {
+                state.channel = Math.max(0, state.channel + change);
+                document.getElementById('channel-val').innerText = state.channel;
+            } else if (type === 'extraHoles') {
+                state.extraHoles = Math.max(0, state.extraHoles + change);
+                document.getElementById('extraHoles-val').innerText = state.extraHoles;
+            } else if (type === 'floor') {
+                state.floor = Math.max(1, state.floor + change);
+                document.getElementById('floor-val').innerText = state.floor;
+            }
+            calculatePrice();
+        }
+
         function calculatePrice() {
             const packagePrice = parseInt(document.getElementById('package').value);
-            document.getElementById('total-price').innerText = packagePrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+            const prepPrice = parseInt(document.getElementById('preparation').value);
+
+            const routeTotal = state.extraRoute * EXTRA_ROUTE_PRICE;
+            const channelTotal = state.channel * CHANNEL_PRICE;
+            const holesTotal = state.extraHoles * EXTRA_HOLE_PRICE;
+
+            let floorExtra = 0;
+            if (state.floor > 5) {
+                floorExtra = Math.floor((state.floor - 1) / 5) * 2000;
+            }
+
+            const total = packagePrice + routeTotal + channelTotal + holesTotal + floorExtra + prepPrice;
+
+            document.getElementById('total-price').innerText = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
         }
 
         const LEAD_WORKER_URL = 'https://surgut-climate.deadgormurder.workers.dev';
@@ -731,10 +830,23 @@
             submitBtn.disabled = true;
             submitBtn.textContent = 'Отправляем...';
 
+            const packageSelect = document.getElementById('package');
+            const packageText = packageSelect ? packageSelect.options[packageSelect.selectedIndex].text.split(' — ')[0] : '';
+            const prepSelect = document.getElementById('preparation');
+            const prepText = prepSelect ? prepSelect.options[prepSelect.selectedIndex].text.split(' (+')[0] : '';
+            const totalPriceEl = document.getElementById('total-price');
+
+            let calcDetails = '';
+            if (totalPriceEl) {
+                calcDetails = `Пакет: ${packageText}. Доп. трасса: ${state.extraRoute} м. Кабель-канал: ${state.channel} м. `
+                    + `Доп. отверстия: ${state.extraHoles} шт. Этаж: ${state.floor}. Подготовка: ${prepText}. `
+                    + `Итоговая смета: ${totalPriceEl.innerText} ₽`;
+            }
+
             fetch(LEAD_WORKER_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ name, phone, source, details: document.getElementById('total-price') ? `Пакет от: ${document.getElementById('total-price').innerText} ₽` : '' }),
+                body: JSON.stringify({ name, phone, source, details: calcDetails }),
             })
                 .then(res => res.json())
                 .then(data => {
