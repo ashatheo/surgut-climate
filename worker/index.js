@@ -1,6 +1,8 @@
 const ALLOWED_ORIGINS = [
     'https://xn--86-6kc5ajgi3c.xn--p1ai',
     'https://xn--86-6kc5ajgi3c.xn--p1ai:443',
+    'https://xn--86-9kcp9awr5e.xn--p1ai',
+    'https://www.xn--86-9kcp9awr5e.xn--p1ai',
     'http://localhost:5500',
     'http://127.0.0.1:5500',
 ];
